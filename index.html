@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OmoSync</title>
+  <meta name="description" content="Android Auto di layar cockpit motor OMOWAY OMO X lewat Wi-Fi, plus suara mesin prosedural.">
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --bg: #0b0e12; --surface: #141a21; --surface-2: #1b232c; --line: #263039;
+      --text: #e6e9ee; --muted: #8a94a3; --accent: #19d3c5; --accent-ink: #04211f; --warn: #ffb020;
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    a { color: var(--accent); }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+    header.top { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .3px; }
+    .brand img { width: 32px; height: 32px; }
+    .lang button { background: none; border: 1px solid var(--line); color: var(--muted); padding: 4px 10px; border-radius: 999px; cursor: pointer; font: inherit; font-size: 13px; }
+    .lang button[aria-pressed="true"] { color: var(--text); border-color: var(--accent); }
+    .hero { padding: 40px 0 24px; }
+    .hero h1 { font-size: clamp(28px, 6vw, 44px); line-height: 1.15; margin: 0 0 12px; }
+    .hero p { color: var(--muted); font-size: 18px; margin: 0 0 24px; max-width: 640px; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .btn { display: inline-block; background: var(--accent); color: var(--accent-ink); font-weight: 700; text-decoration: none; padding: 14px 22px; border-radius: 12px; }
+    .btn.ghost { background: none; color: var(--text); border: 1px solid var(--line); font-weight: 600; }
+    .meta { color: var(--muted); font-size: 13px; margin-top: 14px; word-break: break-all; }
+    .meta code { color: var(--text); }
+    section { padding: 28px 0; border-top: 1px solid var(--line); }
+    h2 { font-size: 22px; margin: 0 0 16px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+    .card h3 { margin: 0 0 6px; font-size: 16px; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; }
+    ol.steps { list-style: none; padding: 0; margin: 0; counter-reset: step; display: grid; gap: 10px; }
+    ol.steps li { counter-increment: step; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px 14px 56px; position: relative; }
+    ol.steps li::before { content: counter(step); position: absolute; left: 16px; top: 14px; width: 28px; height: 28px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--accent); color: var(--accent); font-weight: 700; display: grid; place-items: center; font-size: 14px; }
+    ol.steps b { display: block; }
+    ol.steps span { color: var(--muted); font-size: 14px; }
+    .tag { display: inline-block; font-size: 11px; padding: 1px 8px; border-radius: 999px; margin-left: 6px; vertical-align: 2px; border: 1px solid var(--line); color: var(--muted); }
+    .tag.req { border-color: var(--accent); color: var(--accent); }
+    pre { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; overflow-x: auto; font-size: 14px; }
+    details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin-bottom: 10px; }
+    summary { cursor: pointer; font-weight: 600; }
+    details p { color: var(--muted); margin: 10px 0 0; font-size: 15px; }
+    .note { border-left: 3px solid var(--warn); padding: 8px 14px; background: var(--surface); border-radius: 0 10px 10px 0; color: var(--muted); font-size: 14px; }
+    footer { color: var(--muted); font-size: 13px; padding: 28px 0 40px; border-top: 1px solid var(--line); }
+    [data-en] { display: none; }
+    html[lang="en"] [data-id] { display: none; }
+    html[lang="en"] [data-en] { display: revert; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><img src="logo.svg" alt=""> OmoSync</div>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-set-lang="id" aria-pressed="true">ID</button>
+      <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h1 data-id>Android Auto di layar cockpit motormu</h1>
+    <h1 data-en>Android Auto on your motorcycle's cockpit screen</h1>
+    <p data-id>OmoSync menampilkan Android Auto pas di layar lebar 1920×720 OMOWAY OMO X. Ada juga suara mesin prosedural yang bercampur dengan Spotify dan Maps tanpa memotongnya.</p>
+    <p data-en>OmoSync shows Android Auto laid out for the OMOWAY OMO X's wide 1920×720 screen, plus a procedural engine sound that mixes with Spotify and Maps without interrupting them.</p>
+    <div class="cta">
+      <a class="btn" href="https://github.com/Sammy219/omosync-app/releases/download/v0.2.2/OmoSync-0.2.2.apk">
+        <span data-id>Unduh APK 0.2.2</span><span data-en>Download APK 0.2.2</span>
+      </a>
+      <a class="btn ghost" href="https://github.com/Sammy219/omosync-app/releases">
+        <span data-id>Semua rilis</span><span data-en>All releases</span>
+      </a>
+    </div>
+    <div class="meta">Android 10+ · SHA-256 <code>ea47b6eb649b7d96a2b2aa7c10f02d7a7baf243979b7f0c63a35ac629e1dbad6</code></div>
+  </div>
+
+  <section>
+    <h2 data-id>Fitur</h2><h2 data-en>Features</h2>
+    <div class="grid">
+      <div class="card">
+        <h3 data-id>Android Auto pas 1920×720</h3><h3 data-en>Android Auto at 1920×720</h3>
+        <p data-id>OmoSync menjadi head unit bagi Android Auto di HP, jadi UI mobilnya digambar khusus untuk layar lebar.</p>
+        <p data-en>OmoSync acts as the head unit for Android Auto on the phone, so the car UI is drawn for the wide screen.</p>
+      </div>
+      <div class="card">
+        <h3 data-id>Kontrol dari HP</h3><h3 data-en>Controlled from the phone</h3>
+        <p data-id>Layar motor tidak bisa disentuh. Android Auto dioperasikan lewat pratinjau sentuh atau controller layar penuh di HP.</p>
+        <p data-en>The bike screen has no touchscreen. Operate Android Auto through a touch preview or a full-screen controller on the phone.</p>
+      </div>
+      <div class="card">
+        <h3 data-id>Suara mesin</h3><h3 data-en>Engine sound</h3>
+        <p data-id>Tiga preset (Inline-4, Thumper, Electric Turbine) dengan gearbox virtual, dari GPS atau slider simulasi.</p>
+        <p data-en>Three presets (Inline-4, Thumper, Electric Turbine) with a virtual gearbox, driven by GPS or a simulation slider.</p>
+      </div>
+      <div class="card">
+        <h3 data-id>Internet tetap jalan</h3><h3 data-en>Internet keeps working</h3>
+        <p data-id>Hanya video yang lewat Wi-Fi motor. Maps dan Spotify tetap memakai data seluler.</p>
+        <p data-en>Only the video uses the bike's Wi-Fi. Maps and Spotify stay on mobile data.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-id>Pengaturan awal</h2><h2 data-en>First-time setup</h2>
+    <p data-id>Saat dibuka, OmoSync menampilkan panduan ini dan memeriksa setiap langkah. Fitur lain baru terbuka setelah semua langkah wajib selesai.</p>
+    <p data-en>On launch OmoSync shows this guide and checks each step. The rest of the app opens once every required step is done.</p>
+    <ol class="steps">
+      <li><b><span data-id>Pasang APK</span><span data-en>Install the APK</span></b>
+        <span data-id>Unduh di HP, izinkan pemasangan dari browser. Kalau Play Protect bertanya, pilih "Install anyway".</span>
+        <span data-en>Download on the phone and allow installs from the browser. If Play Protect asks, choose "Install anyway".</span></li>
+      <li><b><span data-id>Android Auto terpasang</span><span data-en>Android Auto installed</span><span class="tag req" data-id>wajib</span><span class="tag req" data-en>required</span></b>
+        <span data-id>Pasang atau perbarui Android Auto dari Play Store.</span>
+        <span data-en>Install or update Android Auto from the Play Store.</span></li>
+      <li><b><span data-id>Developer mode + head unit server</span><span data-en>Developer mode + head unit server</span><span class="tag req" data-id>wajib</span><span class="tag req" data-en>required</span></b>
+        <span data-id>Pengaturan Android Auto → ketuk "Version" ±10 kali → ⋮ → "Start head unit server". Ulangi "Start head unit server" setiap kali HP restart.</span>
+        <span data-en>Android Auto settings → tap "Version" about 10 times → ⋮ → "Start head unit server". Repeat "Start head unit server" after every phone restart.</span></li>
+      <li><b><span data-id>Get keys</span><span data-en>Get keys</span><span class="tag req" data-id>wajib</span><span class="tag req" data-en>required</span></b>
+        <span data-id>Mengunduh sertifikat contoh dari proyek open-source Open Headunit dan memeriksa sidik jarinya. Sertifikat hanya disimpan di dalam aplikasi.</span>
+        <span data-en>Downloads the sample certificate of the open-source Open Headunit project and checks its fingerprint. It is kept inside the app only.</span></li>
+      <li><b><span data-id>Izin notifikasi</span><span data-en>Notifications</span><span class="tag req" data-id>wajib</span><span class="tag req" data-en>required</span></b>
+        <span data-id>Supaya layanan OmoSync tetap berjalan di latar belakang.</span>
+        <span data-en>Keeps the OmoSync service running in the background.</span></li>
+      <li><b><span data-id>Baterai Android Auto: No restrictions</span><span data-en>Android Auto battery: No restrictions</span><span class="tag" data-id>disarankan</span><span class="tag" data-en>recommended</span></b>
+        <span data-id>Xiaomi/HyperOS: tombol di aplikasi langsung membuka "Background settings" Android Auto. Setelah itu tekan "I've done this".</span>
+        <span data-en>Xiaomi/HyperOS: the button opens Android Auto's "Background settings" directly. Then tap "I've done this".</span></li>
+      <li><b><span data-id>Xiaomi: Autostart Android Auto</span><span data-en>Xiaomi: Autostart for Android Auto</span><span class="tag" data-id>disarankan</span><span class="tag" data-en>recommended</span></b>
+        <span data-id>Security → Autostart → aktifkan Android Auto, lalu tekan "I've done this".</span>
+        <span data-en>Security → Autostart → enable Android Auto, then tap "I've done this".</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2 data-id>Coba tanpa motor: simulator di Mac/PC</h2><h2 data-en>Try without the bike: simulator on Mac/PC</h2>
+    <p data-id>Unduh <code>omosync-simulator-0.2.2.zip</code> dari <a href="https://github.com/Sammy219/omosync-app/releases">halaman rilis</a>, ekstrak, lalu jalankan (butuh Node.js 18+):</p>
+    <p data-en>Download <code>omosync-simulator-0.2.2.zip</code> from the <a href="https://github.com/Sammy219/omosync-app/releases">releases page</a>, unzip it and run (needs Node.js 18+):</p>
+<pre>cd omosync-simulator
+npm install
+npm start            # or: PORT=8090 npm start</pre>
+    <p data-id>Sambungkan HP dan Mac ke Wi-Fi yang sama. Di OmoSync, pilih <b>Transport: Mock simulator</b>, tekan <b>Find simulator on Wi-Fi</b>, lalu <b>Start casting</b>. Buka <code>http://localhost:8080</code> di Chrome.</p>
+    <p data-en>Put the phone and the computer on the same Wi-Fi. In OmoSync choose <b>Transport: Mock simulator</b>, tap <b>Find simulator on Wi-Fi</b>, then <b>Start casting</b>. Open <code>http://localhost:8080</code> in Chrome.</p>
+  </section>
+
+  <section>
+    <h2>FAQ</h2>
+    <details>
+      <summary data-id>Sudah bisa tampil di layar OMOWAY asli?</summary>
+      <summary data-en>Does it work on the real OMOWAY screen yet?</summary>
+      <p data-id>Belum. Bagian Android Auto sudah berjalan dan teruji dengan simulator. Protokol layar OMOWAY belum diketahui, jadi pengiriman ke motor sungguhan masih dalam pengembangan.</p>
+      <p data-en>Not yet. The Android Auto side works and is tested against the simulator. The OMOWAY screen protocol is still unknown, so sending to the real bike is in development.</p>
+    </details>
+    <details>
+      <summary data-id>Layar Android Auto hitam atau macet di logo</summary>
+      <summary data-en>Android Auto is black or stuck on the logo</summary>
+      <p data-id>Hentikan paksa Android Auto (App info → Force stop), lalu jalankan lagi "Start head unit server". Jangan jalankan scrcpy dengan video bersamaan, karena ia memakai encoder video yang sama. Untuk suara saja, pakai <code>scrcpy --no-video</code>.</p>
+      <p data-en>Force-stop Android Auto (App info → Force stop), then "Start head unit server" again. Don't run scrcpy with video at the same time, because it uses the same video encoder. For sound only, use <code>scrcpy --no-video</code>.</p>
+    </details>
+    <details>
+      <summary data-id>Kenapa suara Maps dan Spotify tetap di HP?</summary>
+      <summary data-en>Why do Maps and Spotify stay on the phone?</summary>
+      <p data-id>Disengaja. Suara keluar lewat HP atau helm Bluetooth dan bercampur dengan suara mesin. Layar motor hanya menerima gambar.</p>
+      <p data-en>On purpose. Sound goes out through the phone or a Bluetooth helmet, mixed with the engine sound. The bike screen only receives the picture.</p>
+    </details>
+    <details>
+      <summary data-id>Update dari versi lama</summary>
+      <summary data-en>Updating from an older version</summary>
+      <p data-id>Pasang APK baru di atas yang lama. Pengaturan tetap tersimpan. Hanya build debug buatan sendiri yang harus di-uninstall dulu.</p>
+      <p data-en>Install the new APK over the old one and your settings are kept. Only self-built debug builds must be uninstalled first.</p>
+    </details>
+    <div class="note">
+      <span data-id>Eksperimental, tanpa garansi. Tidak berafiliasi dengan OMOWAY maupun Google.</span>
+      <span data-en>Experimental, no warranty. Not affiliated with OMOWAY or Google.</span>
+    </div>
+  </section>
+
+  <footer>
+    OmoSync 0.2.2 · <a href="https://github.com/Sammy219/omosync-app/releases">Releases</a>
+  </footer>
+</div>
+<script>
+  (function () {
+    var root = document.documentElement;
+    function apply(lang) {
+      root.lang = lang;
+      document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+        b.setAttribute('aria-pressed', String(b.getAttribute('data-set-lang') === lang));
+      });
+      try { localStorage.setItem('omosync-lang', lang); } catch (e) { /* storage unavailable */ }
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('omosync-lang'); } catch (e) { /* storage unavailable */ }
+    apply(saved || (navigator.language && navigator.language.toLowerCase().indexOf('id') === 0 ? 'id' : 'en'));
+    document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+      b.addEventListener('click', function () { apply(b.getAttribute('data-set-lang')); });
+    });
+  })();
+</script>
+</body>
+</html>
