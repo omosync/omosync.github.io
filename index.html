@@ -69,14 +69,14 @@
     <p data-id>OmoSync menampilkan Android Auto pas di layar lebar 1920×720 OMOWAY OMO X. Ada juga suara mesin prosedural yang bercampur dengan Spotify dan Maps tanpa memotongnya.</p>
     <p data-en>OmoSync shows Android Auto laid out for the OMOWAY OMO X's wide 1920×720 screen, plus a procedural engine sound that mixes with Spotify and Maps without interrupting them.</p>
     <div class="cta">
-      <a class="btn" href="https://github.com/omosync/omosync.github.io/releases/download/v0.2.2/OmoSync-0.2.2.apk">
-        <span data-id>Unduh APK 0.2.2</span><span data-en>Download APK 0.2.2</span>
+      <a class="btn" href="https://github.com/omosync/omosync.github.io/releases/download/v0.3.0/OmoSync-0.3.0.apk">
+        <span data-id>Unduh APK 0.3.0</span><span data-en>Download APK 0.3.0</span>
       </a>
       <a class="btn ghost" href="https://github.com/omosync/omosync.github.io/releases">
         <span data-id>Semua rilis</span><span data-en>All releases</span>
       </a>
     </div>
-    <div class="meta">Android 10+ · SHA-256 <code>ea47b6eb649b7d96a2b2aa7c10f02d7a7baf243979b7f0c63a35ac629e1dbad6</code></div>
+    <div class="meta">Android 10+ · SHA-256 <code>84f14d6c33c16283adff33cd2edd8310b8f3bf0c2fb95b881958847b6fa4eeb5</code></div>
   </div>
 
   <section>
@@ -98,9 +98,9 @@
         <p data-en>Three presets (Inline-4, Thumper, Electric Turbine) with a virtual gearbox, driven by GPS or a simulation slider.</p>
       </div>
       <div class="card">
-        <h3 data-id>Internet tetap jalan</h3><h3 data-en>Internet keeps working</h3>
-        <p data-id>Hanya video yang lewat Wi-Fi motor. Maps dan Spotify tetap memakai data seluler.</p>
-        <p data-en>Only the video uses the bike's Wi-Fi. Maps and Spotify stay on mobile data.</p>
+        <h3 data-id>Langsung ke motor OMO X</h3><h3 data-en>Straight to the OMO X</h3>
+        <p data-id>Wi-Fi Direct ke layar motor, protokol yang sama dengan aplikasi OMOWAY. Internet HP tetap lewat seluler.</p>
+        <p data-en>Wi-Fi Direct to the bike's screen, same protocol as the OMOWAY app. The phone's internet stays on cellular.</p>
       </div>
     </div>
   </section>
@@ -136,8 +136,8 @@
 
   <section>
     <h2 data-id>Coba tanpa motor: simulator di Mac/PC</h2><h2 data-en>Try without the bike: simulator on Mac/PC</h2>
-    <p data-id>Unduh <code>omosync-simulator-0.2.2.zip</code> dari <a href="https://github.com/omosync/omosync.github.io/releases">halaman rilis</a>, ekstrak, lalu jalankan (butuh Node.js 18+):</p>
-    <p data-en>Download <code>omosync-simulator-0.2.2.zip</code> from the <a href="https://github.com/omosync/omosync.github.io/releases">releases page</a>, unzip it and run (needs Node.js 18+):</p>
+    <p data-id>Unduh <code>omosync-simulator-0.3.0.zip</code> dari <a href="https://github.com/omosync/omosync.github.io/releases">halaman rilis</a>, ekstrak, lalu jalankan (butuh Node.js 18+):</p>
+    <p data-en>Download <code>omosync-simulator-0.3.0.zip</code> from the <a href="https://github.com/omosync/omosync.github.io/releases">releases page</a>, unzip it and run (needs Node.js 18+):</p>
 <pre>cd omosync-simulator
 npm install
 npm start            # or: PORT=8090 npm start</pre>
@@ -150,8 +150,14 @@ npm start            # or: PORT=8090 npm start</pre>
     <details>
       <summary data-id>Sudah bisa tampil di layar OMOWAY asli?</summary>
       <summary data-en>Does it work on the real OMOWAY screen yet?</summary>
-      <p data-id>Belum. Bagian Android Auto sudah berjalan dan teruji dengan simulator. Protokol layar OMOWAY belum diketahui, jadi pengiriman ke motor sungguhan masih dalam pengembangan.</p>
-      <p data-en>Not yet. The Android Auto side works and is tested against the simulator. The OMOWAY screen protocol is still unknown, so sending to the real bike is in development.</p>
+      <p data-id>Ya, sejak 0.3.0. Mirror dan Android Auto tampil di layar navigasi OMO X lewat Wi-Fi Direct, memakai protokol yang sama dengan aplikasi OMOWAY. Urutannya: buka kunci/nyalakan motor lewat aplikasi OMOWAY, lalu <b>force stop</b> aplikasi itu (hanya satu HP yang dilayani motor) → di OmoSync pilih <b>Transport: OMOWAY bike</b> dan <b>Start casting</b> → di motor buka layar <b>Navigasi</b> (tombol <i>Start Navigation</i>). Video hanya tampil di area peta layar itu; layar lain milik firmware motor.</p>
+      <p data-en>Yes, since 0.3.0. Mirror and Android Auto show on the OMO X navigation screen over Wi-Fi Direct, speaking the same protocol as the OMOWAY app. Steps: unlock/start the bike with the OMOWAY app, then <b>force-stop</b> it (the bike serves one phone) → in OmoSync choose <b>Transport: OMOWAY bike</b> and <b>Start casting</b> → on the bike open the <b>Navigation</b> screen (<i>Start Navigation</i>). The picture fills the map area of that screen only; other screens belong to the bike's firmware.</p>
+    </details>
+    <details>
+      <summary data-id>Suara tidak keluar di motor</summary>
+      <summary data-en>No sound on the bike</summary>
+      <p data-id>Suara (navigasi, musik, mesin) keluar di motor hanya lewat Bluetooth motor (<code>omo-…</code>). Sambungkan dari <i>Settings → Bluetooth</i> dengan <i>Media audio</i> aktif; OmoSync tidak bisa menyambungkannya sendiri.</p>
+      <p data-en>Sound (navigation, music, engine) reaches the bike only over its Bluetooth (<code>omo-…</code>). Connect it from <i>Settings → Bluetooth</i> with <i>Media audio</i> on; OmoSync cannot connect it by itself.</p>
     </details>
     <details>
       <summary data-id>Layar Android Auto hitam atau macet di logo</summary>
@@ -178,7 +184,7 @@ npm start            # or: PORT=8090 npm start</pre>
   </section>
 
   <footer>
-    OmoSync 0.2.2 · <a href="https://github.com/omosync/omosync.github.io/releases">Releases</a>
+    OmoSync 0.3.0 · <a href="https://github.com/omosync/omosync.github.io/releases">Releases</a>
   </footer>
 </div>
 <script>
