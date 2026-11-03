@@ -43,21 +43,31 @@
     .tag { display: inline-block; font-size: 11px; padding: 1px 8px; border-radius: 999px; margin-left: 6px; vertical-align: 2px; border: 1px solid var(--line); color: var(--muted); }
     .tag.req { border-color: var(--accent); color: var(--accent); }
     pre { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; overflow-x: auto; font-size: 14px; }
-    .faq h3 { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 22px 0 10px; }
-    .faq h3:first-of-type { margin-top: 0; }
+    details.group { background: none; border: 0; padding: 0; margin: 0 0 6px; }
+    details.group > summary { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 12px 28px 12px 0; border-bottom: 1px solid var(--line); }
+    details.group[open] > summary { color: var(--accent); margin-bottom: 10px; }
+    details.group > summary::after { top: 15px; }
+    details.group[open] > summary::after { top: 19px; border-color: var(--accent); }
+    details.group .count { color: var(--muted); font-weight: 400; letter-spacing: 0; text-transform: none; margin-left: 6px; }
     details { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 0 16px; margin-bottom: 8px; }
     details[open] { border-color: var(--accent); }
     summary { cursor: pointer; font-weight: 600; padding: 13px 28px 13px 0; list-style: none; position: relative; }
     summary::-webkit-details-marker { display: none; }
     summary::after { content: ""; position: absolute; right: 4px; top: 18px; width: 8px; height: 8px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); transition: transform .15s; }
-    details[open] summary::after { transform: rotate(-135deg); top: 22px; }
+    details[open] > summary::after { transform: rotate(-135deg); top: 22px; }
     details p { color: var(--muted); margin: 0 0 14px; font-size: 15px; line-height: 1.55; }
     details p + p { margin-top: -6px; }
     .contact { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; margin-top: 18px; }
     .contact p { margin: 0; color: var(--muted); font-size: 15px; }
     .contact a.mail { display: inline-block; background: var(--accent); color: var(--accent-ink); font-weight: 600; text-decoration: none; padding: 10px 16px; border-radius: 10px; }
+    .support { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; background: var(--surface); border: 1px solid var(--accent); border-radius: 14px; padding: 18px; }
+    .support p { margin: 0; color: var(--muted); font-size: 15px; max-width: 560px; }
+    .support p b { color: var(--text); }
     .note { border-left: 3px solid var(--warn); padding: 8px 14px; background: var(--surface); border-radius: 0 10px 10px 0; color: var(--muted); font-size: 14px; }
     footer { color: var(--muted); font-size: 13px; padding: 28px 0 40px; border-top: 1px solid var(--line); }
+    .to-top { position: fixed; right: 16px; bottom: 20px; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface-2); color: var(--accent); font-size: 20px; line-height: 1; cursor: pointer; box-shadow: 0 6px 18px rgba(0,0,0,.35); opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .2s, transform .2s; }
+    .to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+    .to-top:hover { border-color: var(--accent); }
     [data-en] { display: none; }
     html[lang="en"] [data-id] { display: none; }
     html[lang="en"] [data-en] { display: revert; }
@@ -155,119 +165,140 @@ npm start            # or: PORT=8090 npm start</pre>
     <p data-en>Open <code>http://localhost:8080</code> in Chrome. Put the phone and the computer on the same Wi-Fi. In OmoSync's <b>Cockpit</b> tab tap <b>Start Android Auto</b>, then in the <b>Head unit</b> card choose <b>Mac/PC simulator</b>, tap <b>Find simulator on Wi-Fi</b>, then <b>Connect</b>.</p>
   </section>
 
+  <section id="support">
+    <h2 data-id>Dukung OmoSync</h2><h2 data-en>Support OmoSync</h2>
+    <div class="support">
+      <p data-id><b>OmoSync gratis dan tanpa iklan.</b><br>Kalau aplikasi ini berguna di motormu, kamu bisa traktir kopi lewat Saweria. Dukunganmu membantu pengembangan dan pengujian fitur berikutnya.</p>
+      <p data-en><b>OmoSync is free and has no ads.</b><br>If it helps on your bike, you can buy me a coffee on Saweria. Your support goes into building and testing the next features.</p>
+      <a class="btn" href="https://saweria.co/HelloWorld009" target="_blank" rel="noopener">
+        <span data-id>Dukung via Saweria</span><span data-en>Support on Saweria</span>
+      </a>
+    </div>
+  </section>
+
   <section class="faq">
     <h2>FAQ</h2>
-    <h3><span data-id>Umum</span><span data-en>General</span></h3>
-    <details>
-      <summary><span data-id>Apa itu OmoSync dan apa yang dibutuhkan?</span><span data-en>What is OmoSync and what do I need?</span></summary>
-      <p data-id>OmoSync menampilkan Android Auto (atau layar HP) di layar cockpit OMOWAY OMO X lewat Wi-Fi, dan menambahkan suara mesin sintesis. Yang dibutuhkan: HP Android 10+ dengan aplikasi Android Auto, dan motor OMO X. Tanpa root, tanpa kabel, tanpa modifikasi motor. Untuk mencoba tanpa motor ada simulator Mac/PC.</p>
-      <p data-en>OmoSync shows Android Auto (or your phone screen) on the OMOWAY OMO X cockpit screen over Wi-Fi, and adds a synthesized engine sound. You need an Android 10+ phone with the Android Auto app and an OMO X. No root, no cable, no changes to the bike. There is a Mac/PC simulator to try it without the bike.</p>
+    <details class="group" open>
+      <summary><span data-id>Umum</span><span data-en>General</span><span class="count">· 4</span></summary>
+      <details>
+        <summary><span data-id>Apa itu OmoSync dan apa yang dibutuhkan?</span><span data-en>What is OmoSync and what do I need?</span></summary>
+        <p data-id>OmoSync menampilkan Android Auto (atau layar HP) di layar cockpit OMOWAY OMO X lewat Wi-Fi, dan menambahkan suara mesin sintesis. Yang dibutuhkan: HP Android 10+ dengan aplikasi Android Auto, dan motor OMO X. Tanpa root, tanpa kabel, tanpa modifikasi motor. Untuk mencoba tanpa motor ada simulator Mac/PC.</p>
+        <p data-en>OmoSync shows Android Auto (or your phone screen) on the OMOWAY OMO X cockpit screen over Wi-Fi, and adds a synthesized engine sound. You need an Android 10+ phone with the Android Auto app and an OMO X. No root, no cable, no changes to the bike. There is a Mac/PC simulator to try it without the bike.</p>
+      </details>
+      <details>
+        <summary><span data-id>Apakah ini mengubah firmware motor atau berbahaya?</span><span data-en>Does it modify the bike's firmware or is it risky?</span></summary>
+        <p data-id>Tidak. OmoSync tidak menyentuh firmware. Ia hanya berbicara ke layar motor lewat Wi-Fi Direct dengan protokol yang sama dengan aplikasi OMOWAY saat menampilkan navigasi: mengirim gambar dan status tampilan, tidak mengirim perintah lain ke kendaraan. Kunci/buka kunci motor tetap lewat aplikasi OMOWAY.</p>
+        <p data-en>No. OmoSync never touches the firmware. It only talks to the bike's screen over Wi-Fi Direct using the same protocol the OMOWAY app uses to show navigation: it sends the picture and display status, nothing else to the vehicle. Locking and unlocking stay with the OMOWAY app.</p>
+      </details>
+      <details>
+        <summary><span data-id>Apakah ini aplikasi resmi OMOWAY atau Google?</span><span data-en>Is this an official OMOWAY or Google app?</span></summary>
+        <p data-id>Bukan. OmoSync proyek pribadi yang eksperimental, tanpa garansi, dan tidak berafiliasi dengan OMOWAY maupun Google. Pakai dengan tanggung jawab sendiri dan operasikan hanya saat berhenti.</p>
+        <p data-en>No. OmoSync is a personal, experimental project with no warranty and no affiliation with OMOWAY or Google. Use it at your own risk and operate it only while stopped.</p>
+      </details>
+      <details>
+        <summary><span data-id>Kenapa tidak ada di Play Store?</span><span data-en>Why isn't it on the Play Store?</span></summary>
+        <p data-id>Aplikasi ini memakai fitur developer Android Auto (head unit server) dan protokol layar OMO X hasil analisis sendiri, jadi dibagikan langsung di sini. Setiap rilis ditandatangani dengan kunci yang sama dan disertai SHA-256. Kalau Play Protect bertanya, pilih <i>Install anyway</i>.</p>
+        <p data-en>It relies on Android Auto's developer feature (the head unit server) and a self-analysed OMO X screen protocol, so it is distributed here. Every release is signed with the same key and comes with its SHA-256. If Play Protect asks, choose <i>Install anyway</i>.</p>
+      </details>
     </details>
-    <details>
-      <summary><span data-id>Apakah ini mengubah firmware motor atau berbahaya?</span><span data-en>Does it modify the bike's firmware or is it risky?</span></summary>
-      <p data-id>Tidak. OmoSync tidak menyentuh firmware. Ia hanya berbicara ke layar motor lewat Wi-Fi Direct dengan protokol yang sama dengan aplikasi OMOWAY saat menampilkan navigasi: mengirim gambar dan status tampilan, tidak mengirim perintah lain ke kendaraan. Kunci/buka kunci motor tetap lewat aplikasi OMOWAY.</p>
-      <p data-en>No. OmoSync never touches the firmware. It only talks to the bike's screen over Wi-Fi Direct using the same protocol the OMOWAY app uses to show navigation: it sends the picture and display status, nothing else to the vehicle. Locking and unlocking stay with the OMOWAY app.</p>
+    <details class="group">
+      <summary><span data-id>Setup</span><span data-en>Setup</span><span class="count">· 3</span></summary>
+      <details>
+        <summary><span data-id>Apa saja langkah setupnya?</span><span data-en>What are the setup steps?</span></summary>
+        <p data-id>Tab <b>Setup</b> memandu dan memeriksanya: (1) Android Auto terpasang; (2) mode developer Android Auto + <i>Start head unit server</i>; (3) <i>Get keys</i>; (4) izin notifikasi; dianjurkan: (5) Android Auto tanpa batasan baterai dan (6) Autostart di Xiaomi/HyperOS. Setelah selesai, tekan <i>Lanjut ke OmoSync</i>.</p>
+        <p data-en>The <b>Setup</b> tab walks you through and checks them: (1) Android Auto installed; (2) Android Auto developer mode + <i>Start head unit server</i>; (3) <i>Get keys</i>; (4) notification permission; recommended: (5) Android Auto without battery restrictions and (6) Autostart on Xiaomi/HyperOS. Then tap <i>Continue to OmoSync</i>.</p>
+      </details>
+      <details>
+        <summary><span data-id>Apa itu "head unit keys" dan kenapa harus diunduh?</span><span data-en>What are the "head unit keys" and why download them?</span></summary>
+        <p data-id>Android Auto hanya mau bicara dengan head unit yang punya sertifikat. OmoSync mengunduh sertifikat contoh dari proyek open-source Open Headunit (dari GitHub, versi yang dikunci dan sidik jarinya diverifikasi) dan menyimpannya di penyimpanan privat aplikasi. Tidak ada data yang dikirim ke mana pun. Kalau punya sertifikat PKCS#12 sendiri, bisa dipakai lewat tab Cockpit → Lanjutan.</p>
+        <p data-en>Android Auto only talks to head units that present a certificate. OmoSync downloads the sample certificate of the open-source Open Headunit project (a pinned version from GitHub, fingerprint verified) into the app's private storage. Nothing is sent anywhere. Your own PKCS#12 certificate can be used instead via Cockpit → Advanced.</p>
+      </details>
+      <details>
+        <summary><span data-id>Harus mengulang sesuatu setelah HP restart?</span><span data-en>Do I have to repeat anything after a phone restart?</span></summary>
+        <p data-id>Ya, <i>Start head unit server</i> di Android Auto mati setiap HP restart. OmoSync mendeteksinya dan membuka tab Setup lagi dengan tombol yang langsung membuka pengaturan Android Auto.</p>
+        <p data-en>Yes: Android Auto's <i>Start head unit server</i> stops at every reboot. OmoSync notices and opens the Setup tab again with a button that jumps straight to Android Auto's settings.</p>
+      </details>
     </details>
-    <details>
-      <summary><span data-id>Apakah ini aplikasi resmi OMOWAY atau Google?</span><span data-en>Is this an official OMOWAY or Google app?</span></summary>
-      <p data-id>Bukan. OmoSync proyek pribadi yang eksperimental, tanpa garansi, dan tidak berafiliasi dengan OMOWAY maupun Google. Pakai dengan tanggung jawab sendiri dan operasikan hanya saat berhenti.</p>
-      <p data-en>No. OmoSync is a personal, experimental project with no warranty and no affiliation with OMOWAY or Google. Use it at your own risk and operate it only while stopped.</p>
+    <details class="group">
+      <summary><span data-id>Penggunaan</span><span data-en>Using it</span><span class="count">· 6</span></summary>
+      <details>
+        <summary><span data-id>Bagaimana urutan menampilkan di motor?</span><span data-en>How do I get it on the bike's screen?</span></summary>
+        <p data-id>(1) Nyalakan/buka kunci motor lewat aplikasi OMOWAY, lalu <b>force stop</b> aplikasi itu — motor hanya melayani satu HP. (2) Di tab <b>Cockpit</b> tekan <b>Start Android Auto</b>; pratinjau muncul di HP. (3) Di kartu <b>Head unit</b> pilih <b>OMO X bike</b>, tekan <b>Find</b>, pilih layar <code>OMO-…</code>, lalu <b>Connect</b> (lain kali tersambung otomatis). (4) Di motor buka layar <b>Navigasi</b>: <i>Start Navigation</i> di layar READY, atau ikon empat titik dua kali lalu joystick ke kiri. Gambar tampil di area peta layar itu.</p>
+        <p data-en>(1) Start/unlock the bike with the OMOWAY app, then <b>force-stop</b> that app — the bike serves one phone at a time. (2) In the <b>Cockpit</b> tab tap <b>Start Android Auto</b>; a preview appears on the phone. (3) In the <b>Head unit</b> card choose <b>OMO X bike</b>, tap <b>Find</b>, pick the <code>OMO-…</code> screen, then <b>Connect</b> (it reconnects by itself next time). (4) On the bike open the <b>Navigation</b> screen: <i>Start Navigation</i> on the READY screen, or the four-dot icon twice then joystick left. The picture fills the map area of that screen.</p>
+      </details>
+      <details>
+        <summary><span data-id>Layar motor tidak bisa disentuh — bagaimana mengendalikan Android Auto?</span><span data-en>The bike screen has no touch — how do I control Android Auto?</span></summary>
+        <p data-id>Dari HP: sentuh pratinjau di tab Cockpit, pakai D-pad (atas/bawah/kiri/kanan, <i>Select</i>, <i>Back</i>), atau buka <i>Full screen</i> untuk controller layar penuh. Tombol paling bawah di rel kanan Android Auto berpindah antara peta dan daftar aplikasi. Lakukan saat berhenti.</p>
+        <p data-en>From the phone: touch the preview in the Cockpit tab, use the D-pad (up/down/left/right, <i>Select</i>, <i>Back</i>), or open <i>Full screen</i> for a full-screen controller. The bottom button on Android Auto's right-hand rail switches between the map and the app list. Do this while stopped.</p>
+      </details>
+      <details>
+        <summary><span data-id>Bagaimana supaya suara keluar di motor?</span><span data-en>How do I get sound on the bike?</span></summary>
+        <p data-id>Layar motor hanya menerima gambar. Suara (navigasi, musik, mesin) keluar lewat speaker HP, helm Bluetooth, atau Bluetooth motor (<code>omo-…</code>). Untuk speaker motor, sambungkan dari <i>Settings → Bluetooth</i> dengan <i>Media audio</i> aktif; OmoSync tidak bisa menyambungkannya sendiri, tetapi kartu Head unit menunjukkan ke mana suara sedang keluar.</p>
+        <p data-en>The bike screen only receives the picture. Sound (navigation, music, engine) plays through the phone, a Bluetooth helmet, or the bike's Bluetooth (<code>omo-…</code>). For the bike's speakers, connect it from <i>Settings → Bluetooth</i> with <i>Media audio</i> on; OmoSync cannot connect it by itself, but the Head unit card shows where sound currently goes.</p>
+      </details>
+      <details>
+        <summary><span data-id>Apa bedanya "Android Auto" dan "Phone screen"?</span><span data-en>What is the difference between "Android Auto" and "Phone screen"?</span></summary>
+        <p data-id><b>Android Auto</b>: OmoSync menjadi head unit, jadi Maps, Spotify, dll. digambar khusus untuk layar lebar motor dan bisa dikendalikan dengan D-pad. <b>Phone screen</b>: layar HP di-mirror apa adanya (butuh izin perekaman layar) — berguna untuk aplikasi yang tidak ada di Android Auto, tetapi tidak ada kontrol dari OmoSync.</p>
+        <p data-en><b>Android Auto</b>: OmoSync acts as the head unit, so Maps, Spotify and friends are drawn for the bike's wide screen and can be driven with the D-pad. <b>Phone screen</b>: the phone's display is mirrored as is (needs screen-capture permission) — handy for apps that are not on Android Auto, but there are no controls from OmoSync.</p>
+      </details>
+      <details>
+        <summary><span data-id>Bagaimana suara mesin bekerja?</span><span data-en>How does the engine sound work?</span></summary>
+        <p data-id>Di tab <b>Engine sound</b>: pilih salah satu dari sebelas preset (inline-4, crossplane, V4, triple, twin 270°, V-twin, single, big single, 2-tak, turbin, skuter listrik), atur volume, dan pilih sumber kecepatan: <b>GPS</b> saat berkendara atau <b>Slider</b> untuk mencoba. Suaranya disintesis (bukan rekaman) dengan gearbox virtual, dan dicampur di atas Maps/musik tanpa memotongnya.</p>
+        <p data-en>In the <b>Engine sound</b> tab pick one of eleven presets (inline-4, crossplane, V4, triple, 270° twin, V-twin, single, big single, two-stroke, turbine, quiet electric scooter), set the volume and choose the speed source: <b>GPS</b> while riding or the <b>Slider</b> to try it. The sound is synthesized (not recorded) with a virtual gearbox and mixed over Maps/music without interrupting them.</p>
+      </details>
+      <details>
+        <summary><span data-id>Bisa dicoba tanpa motor?</span><span data-en>Can I try it without the bike?</span></summary>
+        <p data-id>Ya, lewat simulator Mac/PC di atas. Tampilannya meniru layar OMO X (HUD, area aman) dan mendukung sentuh dari browser. Diskusi/uji coba selain itu tidak membutuhkan motor sama sekali.</p>
+        <p data-en>Yes, with the Mac/PC simulator above. It mimics the OMO X screen (HUD, safe area) and forwards touches from the browser. Everything except the final step can be tested without the bike.</p>
+      </details>
     </details>
-    <details>
-      <summary><span data-id>Kenapa tidak ada di Play Store?</span><span data-en>Why isn't it on the Play Store?</span></summary>
-      <p data-id>Aplikasi ini memakai fitur developer Android Auto (head unit server) dan protokol layar OMO X hasil analisis sendiri, jadi dibagikan langsung di sini. Setiap rilis ditandatangani dengan kunci yang sama dan disertai SHA-256. Kalau Play Protect bertanya, pilih <i>Install anyway</i>.</p>
-      <p data-en>It relies on Android Auto's developer feature (the head unit server) and a self-analysed OMO X screen protocol, so it is distributed here. Every release is signed with the same key and comes with its SHA-256. If Play Protect asks, choose <i>Install anyway</i>.</p>
+    <details class="group">
+      <summary><span data-id>Masalah</span><span data-en>Troubleshooting</span><span class="count">· 5</span></summary>
+      <details>
+        <summary><span data-id>Tidak bisa tersambung ke motor / layar tidak muncul</span><span data-en>Can't connect to the bike / nothing shows</span></summary>
+        <p data-id>Periksa: aplikasi OMOWAY sudah di-<b>force stop</b> (motor menolak HP kedua dengan status <i>busy</i>); motor menyala dan layarnya aktif; izin <i>Nearby devices</i> diberikan; di motor sedang di layar <b>Navigasi</b> — di layar lain video tidak digambar. Kalau masih gagal, <i>Disconnect</i> lalu <i>Find</i> ulang, atau <i>Forget this bike</i> di Lanjutan.</p>
+        <p data-en>Check: the OMOWAY app is <b>force-stopped</b> (the bike refuses a second phone as <i>busy</i>); the bike is on with its screen awake; the <i>Nearby devices</i> permission is granted; the bike is on its <b>Navigation</b> screen — other screens never draw the video. If it still fails, <i>Disconnect</i>, <i>Find</i> again, or <i>Forget this bike</i> under Advanced.</p>
+      </details>
+      <details>
+        <summary><span data-id>Layar Android Auto hitam atau macet di logo</span><span data-en>Android Auto is black or stuck on the logo</span></summary>
+        <p data-id>Hentikan paksa Android Auto (App info → Force stop), jalankan lagi <i>Start head unit server</i>, lalu <i>Start Android Auto</i> di OmoSync. Jangan jalankan scrcpy dengan video bersamaan karena ia memakai encoder yang sama (<code>scrcpy --no-video</code> aman). Pastikan Android Auto bebas batasan baterai.</p>
+        <p data-en>Force-stop Android Auto (App info → Force stop), run <i>Start head unit server</i> again, then <i>Start Android Auto</i> in OmoSync. Don't run scrcpy with video at the same time, it uses the same encoder (<code>scrcpy --no-video</code> is fine). Make sure Android Auto has no battery restrictions.</p>
+      </details>
+      <details>
+        <summary><span data-id>Jam, baterai, atau kecepatan motor menutupi gambar</span><span data-en>The bike's clock, battery or speed overlaps the picture</span></summary>
+        <p data-id>Firmware motor menggambar HUD-nya di atas video dan itu tidak bisa dimatikan. OmoSync menata Android Auto di dalam area aman (default: 120 px kanan, 36 px bawah dari 960×360). Kalau di motormu masih tertutup, ubah nilainya di Cockpit → Lanjutan → <i>Keep clear of the bike's HUD</i>.</p>
+        <p data-en>The bike's firmware draws its HUD over the video and that cannot be switched off. OmoSync lays Android Auto out inside a safe area (default: 120 px right, 36 px bottom of 960×360). If something is still covered on your bike, adjust the values under Cockpit → Advanced → <i>Keep clear of the bike's HUD</i>.</p>
+      </details>
+      <details>
+        <summary><span data-id>Gambar patah-patah atau tertunda</span><span data-en>The picture stutters or lags</span></summary>
+        <p data-id>Di Cockpit → Lanjutan turunkan <i>Stream quality</i> (2–10 Mbps) atau pakai 30 fps. Jauhkan HP dari sumber gangguan Wi-Fi dan pastikan HP tidak dalam mode hemat daya. Untuk simulator, Wi-Fi 5 GHz jauh lebih lancar.</p>
+        <p data-en>Under Cockpit → Advanced lower the <i>Stream quality</i> (2–10 Mbps) or use 30 fps. Keep the phone away from Wi-Fi interference and out of battery-saver mode. For the simulator, 5 GHz Wi-Fi is much smoother.</p>
+      </details>
+      <details>
+        <summary><span data-id>Update dari versi lama</span><span data-en>Updating from an older version</span></summary>
+        <p data-id>Pasang APK baru di atas yang lama; pengaturan tetap tersimpan. Hanya build debug buatan sendiri yang harus di-uninstall dulu karena tanda tangannya berbeda.</p>
+        <p data-en>Install the new APK over the old one; your settings are kept. Only self-built debug builds must be uninstalled first because their signature differs.</p>
+      </details>
     </details>
-    <h3><span data-id>Setup</span><span data-en>Setup</span></h3>
-    <details>
-      <summary><span data-id>Apa saja langkah setupnya?</span><span data-en>What are the setup steps?</span></summary>
-      <p data-id>Tab <b>Setup</b> memandu dan memeriksanya: (1) Android Auto terpasang; (2) mode developer Android Auto + <i>Start head unit server</i>; (3) <i>Get keys</i>; (4) izin notifikasi; dianjurkan: (5) Android Auto tanpa batasan baterai dan (6) Autostart di Xiaomi/HyperOS. Setelah selesai, tekan <i>Lanjut ke OmoSync</i>.</p>
-      <p data-en>The <b>Setup</b> tab walks you through and checks them: (1) Android Auto installed; (2) Android Auto developer mode + <i>Start head unit server</i>; (3) <i>Get keys</i>; (4) notification permission; recommended: (5) Android Auto without battery restrictions and (6) Autostart on Xiaomi/HyperOS. Then tap <i>Continue to OmoSync</i>.</p>
-    </details>
-    <details>
-      <summary><span data-id>Apa itu "head unit keys" dan kenapa harus diunduh?</span><span data-en>What are the "head unit keys" and why download them?</span></summary>
-      <p data-id>Android Auto hanya mau bicara dengan head unit yang punya sertifikat. OmoSync mengunduh sertifikat contoh dari proyek open-source Open Headunit (dari GitHub, versi yang dikunci dan sidik jarinya diverifikasi) dan menyimpannya di penyimpanan privat aplikasi. Tidak ada data yang dikirim ke mana pun. Kalau punya sertifikat PKCS#12 sendiri, bisa dipakai lewat tab Cockpit → Lanjutan.</p>
-      <p data-en>Android Auto only talks to head units that present a certificate. OmoSync downloads the sample certificate of the open-source Open Headunit project (a pinned version from GitHub, fingerprint verified) into the app's private storage. Nothing is sent anywhere. Your own PKCS#12 certificate can be used instead via Cockpit → Advanced.</p>
-    </details>
-    <details>
-      <summary><span data-id>Harus mengulang sesuatu setelah HP restart?</span><span data-en>Do I have to repeat anything after a phone restart?</span></summary>
-      <p data-id>Ya, <i>Start head unit server</i> di Android Auto mati setiap HP restart. OmoSync mendeteksinya dan membuka tab Setup lagi dengan tombol yang langsung membuka pengaturan Android Auto.</p>
-      <p data-en>Yes: Android Auto's <i>Start head unit server</i> stops at every reboot. OmoSync notices and opens the Setup tab again with a button that jumps straight to Android Auto's settings.</p>
-    </details>
-    <h3><span data-id>Penggunaan</span><span data-en>Using it</span></h3>
-    <details>
-      <summary><span data-id>Bagaimana urutan menampilkan di motor?</span><span data-en>How do I get it on the bike's screen?</span></summary>
-      <p data-id>(1) Nyalakan/buka kunci motor lewat aplikasi OMOWAY, lalu <b>force stop</b> aplikasi itu — motor hanya melayani satu HP. (2) Di tab <b>Cockpit</b> tekan <b>Start Android Auto</b>; pratinjau muncul di HP. (3) Di kartu <b>Head unit</b> pilih <b>OMO X bike</b>, tekan <b>Find</b>, pilih layar <code>OMO-…</code>, lalu <b>Connect</b> (lain kali tersambung otomatis). (4) Di motor buka layar <b>Navigasi</b>: <i>Start Navigation</i> di layar READY, atau ikon empat titik dua kali lalu joystick ke kiri. Gambar tampil di area peta layar itu.</p>
-      <p data-en>(1) Start/unlock the bike with the OMOWAY app, then <b>force-stop</b> that app — the bike serves one phone at a time. (2) In the <b>Cockpit</b> tab tap <b>Start Android Auto</b>; a preview appears on the phone. (3) In the <b>Head unit</b> card choose <b>OMO X bike</b>, tap <b>Find</b>, pick the <code>OMO-…</code> screen, then <b>Connect</b> (it reconnects by itself next time). (4) On the bike open the <b>Navigation</b> screen: <i>Start Navigation</i> on the READY screen, or the four-dot icon twice then joystick left. The picture fills the map area of that screen.</p>
-    </details>
-    <details>
-      <summary><span data-id>Layar motor tidak bisa disentuh — bagaimana mengendalikan Android Auto?</span><span data-en>The bike screen has no touch — how do I control Android Auto?</span></summary>
-      <p data-id>Dari HP: sentuh pratinjau di tab Cockpit, pakai D-pad (atas/bawah/kiri/kanan, <i>Select</i>, <i>Back</i>), atau buka <i>Full screen</i> untuk controller layar penuh. Tombol paling bawah di rel kanan Android Auto berpindah antara peta dan daftar aplikasi. Lakukan saat berhenti.</p>
-      <p data-en>From the phone: touch the preview in the Cockpit tab, use the D-pad (up/down/left/right, <i>Select</i>, <i>Back</i>), or open <i>Full screen</i> for a full-screen controller. The bottom button on Android Auto's right-hand rail switches between the map and the app list. Do this while stopped.</p>
-    </details>
-    <details>
-      <summary><span data-id>Bagaimana supaya suara keluar di motor?</span><span data-en>How do I get sound on the bike?</span></summary>
-      <p data-id>Layar motor hanya menerima gambar. Suara (navigasi, musik, mesin) keluar lewat speaker HP, helm Bluetooth, atau Bluetooth motor (<code>omo-…</code>). Untuk speaker motor, sambungkan dari <i>Settings → Bluetooth</i> dengan <i>Media audio</i> aktif; OmoSync tidak bisa menyambungkannya sendiri, tetapi kartu Head unit menunjukkan ke mana suara sedang keluar.</p>
-      <p data-en>The bike screen only receives the picture. Sound (navigation, music, engine) plays through the phone, a Bluetooth helmet, or the bike's Bluetooth (<code>omo-…</code>). For the bike's speakers, connect it from <i>Settings → Bluetooth</i> with <i>Media audio</i> on; OmoSync cannot connect it by itself, but the Head unit card shows where sound currently goes.</p>
-    </details>
-    <details>
-      <summary><span data-id>Apa bedanya "Android Auto" dan "Phone screen"?</span><span data-en>What is the difference between "Android Auto" and "Phone screen"?</span></summary>
-      <p data-id><b>Android Auto</b>: OmoSync menjadi head unit, jadi Maps, Spotify, dll. digambar khusus untuk layar lebar motor dan bisa dikendalikan dengan D-pad. <b>Phone screen</b>: layar HP di-mirror apa adanya (butuh izin perekaman layar) — berguna untuk aplikasi yang tidak ada di Android Auto, tetapi tidak ada kontrol dari OmoSync.</p>
-      <p data-en><b>Android Auto</b>: OmoSync acts as the head unit, so Maps, Spotify and friends are drawn for the bike's wide screen and can be driven with the D-pad. <b>Phone screen</b>: the phone's display is mirrored as is (needs screen-capture permission) — handy for apps that are not on Android Auto, but there are no controls from OmoSync.</p>
-    </details>
-    <details>
-      <summary><span data-id>Bagaimana suara mesin bekerja?</span><span data-en>How does the engine sound work?</span></summary>
-      <p data-id>Di tab <b>Engine sound</b>: pilih salah satu dari sebelas preset (inline-4, crossplane, V4, triple, twin 270°, V-twin, single, big single, 2-tak, turbin, skuter listrik), atur volume, dan pilih sumber kecepatan: <b>GPS</b> saat berkendara atau <b>Slider</b> untuk mencoba. Suaranya disintesis (bukan rekaman) dengan gearbox virtual, dan dicampur di atas Maps/musik tanpa memotongnya.</p>
-      <p data-en>In the <b>Engine sound</b> tab pick one of eleven presets (inline-4, crossplane, V4, triple, 270° twin, V-twin, single, big single, two-stroke, turbine, quiet electric scooter), set the volume and choose the speed source: <b>GPS</b> while riding or the <b>Slider</b> to try it. The sound is synthesized (not recorded) with a virtual gearbox and mixed over Maps/music without interrupting them.</p>
-    </details>
-    <details>
-      <summary><span data-id>Bisa dicoba tanpa motor?</span><span data-en>Can I try it without the bike?</span></summary>
-      <p data-id>Ya, lewat simulator Mac/PC di atas. Tampilannya meniru layar OMO X (HUD, area aman) dan mendukung sentuh dari browser. Diskusi/uji coba selain itu tidak membutuhkan motor sama sekali.</p>
-      <p data-en>Yes, with the Mac/PC simulator above. It mimics the OMO X screen (HUD, safe area) and forwards touches from the browser. Everything except the final step can be tested without the bike.</p>
-    </details>
-    <h3><span data-id>Masalah</span><span data-en>Troubleshooting</span></h3>
-    <details>
-      <summary><span data-id>Tidak bisa tersambung ke motor / layar tidak muncul</span><span data-en>Can't connect to the bike / nothing shows</span></summary>
-      <p data-id>Periksa: aplikasi OMOWAY sudah di-<b>force stop</b> (motor menolak HP kedua dengan status <i>busy</i>); motor menyala dan layarnya aktif; izin <i>Nearby devices</i> diberikan; di motor sedang di layar <b>Navigasi</b> — di layar lain video tidak digambar. Kalau masih gagal, <i>Disconnect</i> lalu <i>Find</i> ulang, atau <i>Forget this bike</i> di Lanjutan.</p>
-      <p data-en>Check: the OMOWAY app is <b>force-stopped</b> (the bike refuses a second phone as <i>busy</i>); the bike is on with its screen awake; the <i>Nearby devices</i> permission is granted; the bike is on its <b>Navigation</b> screen — other screens never draw the video. If it still fails, <i>Disconnect</i>, <i>Find</i> again, or <i>Forget this bike</i> under Advanced.</p>
-    </details>
-    <details>
-      <summary><span data-id>Layar Android Auto hitam atau macet di logo</span><span data-en>Android Auto is black or stuck on the logo</span></summary>
-      <p data-id>Hentikan paksa Android Auto (App info → Force stop), jalankan lagi <i>Start head unit server</i>, lalu <i>Start Android Auto</i> di OmoSync. Jangan jalankan scrcpy dengan video bersamaan karena ia memakai encoder yang sama (<code>scrcpy --no-video</code> aman). Pastikan Android Auto bebas batasan baterai.</p>
-      <p data-en>Force-stop Android Auto (App info → Force stop), run <i>Start head unit server</i> again, then <i>Start Android Auto</i> in OmoSync. Don't run scrcpy with video at the same time, it uses the same encoder (<code>scrcpy --no-video</code> is fine). Make sure Android Auto has no battery restrictions.</p>
-    </details>
-    <details>
-      <summary><span data-id>Jam, baterai, atau kecepatan motor menutupi gambar</span><span data-en>The bike's clock, battery or speed overlaps the picture</span></summary>
-      <p data-id>Firmware motor menggambar HUD-nya di atas video dan itu tidak bisa dimatikan. OmoSync menata Android Auto di dalam area aman (default: 120 px kanan, 36 px bawah dari 960×360). Kalau di motormu masih tertutup, ubah nilainya di Cockpit → Lanjutan → <i>Keep clear of the bike's HUD</i>.</p>
-      <p data-en>The bike's firmware draws its HUD over the video and that cannot be switched off. OmoSync lays Android Auto out inside a safe area (default: 120 px right, 36 px bottom of 960×360). If something is still covered on your bike, adjust the values under Cockpit → Advanced → <i>Keep clear of the bike's HUD</i>.</p>
-    </details>
-    <details>
-      <summary><span data-id>Gambar patah-patah atau tertunda</span><span data-en>The picture stutters or lags</span></summary>
-      <p data-id>Di Cockpit → Lanjutan turunkan <i>Stream quality</i> (2–10 Mbps) atau pakai 30 fps. Jauhkan HP dari sumber gangguan Wi-Fi dan pastikan HP tidak dalam mode hemat daya. Untuk simulator, Wi-Fi 5 GHz jauh lebih lancar.</p>
-      <p data-en>Under Cockpit → Advanced lower the <i>Stream quality</i> (2–10 Mbps) or use 30 fps. Keep the phone away from Wi-Fi interference and out of battery-saver mode. For the simulator, 5 GHz Wi-Fi is much smoother.</p>
-    </details>
-    <details>
-      <summary><span data-id>Update dari versi lama</span><span data-en>Updating from an older version</span></summary>
-      <p data-id>Pasang APK baru di atas yang lama; pengaturan tetap tersimpan. Hanya build debug buatan sendiri yang harus di-uninstall dulu karena tanda tangannya berbeda.</p>
-      <p data-en>Install the new APK over the old one; your settings are kept. Only self-built debug builds must be uninstalled first because their signature differs.</p>
-    </details>
-    <h3><span data-id>Teknis</span><span data-en>Technical</span></h3>
-    <details>
-      <summary><span data-id>Bagaimana cara kerjanya di dalam?</span><span data-en>How does it work under the hood?</span></summary>
-      <p data-id>OmoSync menjalankan klien protokol head unit Android Auto ke head unit server di HP yang sama (TLS lokal), menerima video H.264 dan mengirim sentuhan/tombol. Gambar itu dipotong ke area aman dan di-encode ulang menjadi H.264 High 960×360, lalu dikirim ke motor lewat Wi-Fi Direct (motor sebagai group owner; kanal kontrol dan video TCP terpisah) persis seperti aplikasi OMOWAY. Internet HP tetap lewat seluler.</p>
-      <p data-en>OmoSync runs an Android Auto head-unit protocol client against the head unit server on the same phone (local TLS), receiving H.264 video and sending touches/keys. That picture is cropped to the safe area, re-encoded as H.264 High 960×360 and sent to the bike over Wi-Fi Direct (bike as group owner; separate TCP control and video channels) exactly like the OMOWAY app. The phone's internet stays on cellular.</p>
-    </details>
-    <details>
-      <summary><span data-id>Data apa yang dikumpulkan?</span><span data-en>What data is collected?</span></summary>
-      <p data-id>Tidak ada. OmoSync tidak punya server dan tidak mengirim data apa pun; satu-satunya akses internet adalah mengunduh sertifikat head unit dari GitHub. Lokasi dipakai hanya di HP untuk kecepatan GPS suara mesin, dan izin <i>Nearby devices</i> untuk menemukan layar motor.</p>
-      <p data-en>None. OmoSync has no server and sends nothing anywhere; its only internet access is downloading the head-unit certificate from GitHub. Location is used on the phone only for GPS speed of the engine sound, and <i>Nearby devices</i> to find the bike's screen.</p>
-    </details>
-    <details>
-      <summary><span data-id>Berapa pemakaian baterai dan kuota?</span><span data-en>What about battery and data usage?</span></summary>
-      <p data-id>Wi-Fi Direct ke motor tidak memakai kuota; Maps dan musik memakai data seperti biasa. Encoding video adalah beban terbesar — 30 fps dan bitrate lebih rendah menghemat baterai. Saat berkendara jauh, HP sebaiknya di-charge.</p>
-      <p data-en>Wi-Fi Direct to the bike uses no mobile data; Maps and music use data as usual. Video encoding is the biggest load — 30 fps and a lower bitrate save battery. Charge the phone on longer rides.</p>
-    </details>
-    <div class="note">
+    <details class="group">
+      <summary><span data-id>Teknis</span><span data-en>Technical</span><span class="count">· 3</span></summary>
+      <details>
+        <summary><span data-id>Bagaimana cara kerjanya di dalam?</span><span data-en>How does it work under the hood?</span></summary>
+        <p data-id>OmoSync menjalankan klien protokol head unit Android Auto ke head unit server di HP yang sama (TLS lokal), menerima video H.264 dan mengirim sentuhan/tombol. Gambar itu dipotong ke area aman dan di-encode ulang menjadi H.264 High 960×360, lalu dikirim ke motor lewat Wi-Fi Direct (motor sebagai group owner; kanal kontrol dan video TCP terpisah) persis seperti aplikasi OMOWAY. Internet HP tetap lewat seluler.</p>
+        <p data-en>OmoSync runs an Android Auto head-unit protocol client against the head unit server on the same phone (local TLS), receiving H.264 video and sending touches/keys. That picture is cropped to the safe area, re-encoded as H.264 High 960×360 and sent to the bike over Wi-Fi Direct (bike as group owner; separate TCP control and video channels) exactly like the OMOWAY app. The phone's internet stays on cellular.</p>
+      </details>
+      <details>
+        <summary><span data-id>Data apa yang dikumpulkan?</span><span data-en>What data is collected?</span></summary>
+        <p data-id>Tidak ada. OmoSync tidak punya server dan tidak mengirim data apa pun; satu-satunya akses internet adalah mengunduh sertifikat head unit dari GitHub. Lokasi dipakai hanya di HP untuk kecepatan GPS suara mesin, dan izin <i>Nearby devices</i> untuk menemukan layar motor.</p>
+        <p data-en>None. OmoSync has no server and sends nothing anywhere; its only internet access is downloading the head-unit certificate from GitHub. Location is used on the phone only for GPS speed of the engine sound, and <i>Nearby devices</i> to find the bike's screen.</p>
+      </details>
+      <details>
+        <summary><span data-id>Berapa pemakaian baterai dan kuota?</span><span data-en>What about battery and data usage?</span></summary>
+        <p data-id>Wi-Fi Direct ke motor tidak memakai kuota; Maps dan musik memakai data seperti biasa. Encoding video adalah beban terbesar — 30 fps dan bitrate lebih rendah menghemat baterai. Saat berkendara jauh, HP sebaiknya di-charge.</p>
+        <p data-en>Wi-Fi Direct to the bike uses no mobile data; Maps and music use data as usual. Video encoding is the biggest load — 30 fps and a lower bitrate save battery. Charge the phone on longer rides.</p>
+      </details>
+        </details>
+<div class="note">
       <span data-id>Eksperimental, tanpa garansi. Tidak berafiliasi dengan OMOWAY maupun Google.</span>
       <span data-en>Experimental, no warranty. Not affiliated with OMOWAY or Google.</span>
     </div>
@@ -279,10 +310,18 @@ npm start            # or: PORT=8090 npm start</pre>
   </section>
 
   <footer>
-    OmoSync 0.4.3 · <a href="https://github.com/omosync/omosync.github.io/releases">Releases</a> · <a href="mailto:masterz1030@gmail.com?subject=OmoSync">masterz1030@gmail.com</a>
+    OmoSync 0.4.3 · <a href="https://github.com/omosync/omosync.github.io/releases">Releases</a> · <a href="https://saweria.co/HelloWorld009" target="_blank" rel="noopener">Saweria</a> · <a href="mailto:masterz1030@gmail.com?subject=OmoSync">masterz1030@gmail.com</a>
   </footer>
 </div>
+<button type="button" class="to-top" aria-label="Back to top" title="Back to top">↑</button>
 <script>
+  (function () {
+    var top = document.querySelector('.to-top');
+    function onScroll() { top.classList.toggle('show', window.scrollY > 700); }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    top.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  })();
   (function () {
     var root = document.documentElement;
     function apply(lang) {
