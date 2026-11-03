@@ -8,36 +8,45 @@
   <link rel="icon" href="logo.png" type="image/png">
   <style>
     :root {
-      --bg: #0b0e12; --surface: #141a21; --surface-2: #1b232c; --line: #263039;
-      --text: #e6e9ee; --muted: #8a94a3; --accent: #19d3c5; --accent-ink: #04211f; --warn: #ffb020;
+      /* from the logo: blue → cyan → teal on deep navy */
+      --bg: #070d1a; --surface: #0e1828; --surface-2: #132238; --line: #1e2e47;
+      --text: #e6edf7; --muted: #8b9ab3; --accent: #22c4f5; --accent-2: #2ee6a8; --blue: #0a84ff;
+      --accent-ink: #021626; --warn: #ffb020;
+      --grad: linear-gradient(120deg, var(--blue) 0%, var(--accent) 55%, var(--accent-2) 100%);
     }
     * { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
-    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    body { margin: 0; background: radial-gradient(900px 520px at 85% -120px, rgba(34,196,245,.16), transparent 70%), radial-gradient(700px 460px at -10% 180px, rgba(10,132,255,.12), transparent 70%), var(--bg); background-repeat: no-repeat; color: var(--text); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
     a { color: var(--accent); }
     .wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
     header.top { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
     .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .3px; }
-    .brand img { width: 32px; height: 32px; }
+    .brand img { width: 34px; height: 34px; border-radius: 9px; }
     .lang button { background: none; border: 1px solid var(--line); color: var(--muted); padding: 4px 10px; border-radius: 999px; cursor: pointer; font: inherit; font-size: 13px; }
     .lang button[aria-pressed="true"] { color: var(--text); border-color: var(--accent); }
-    .hero { padding: 40px 0 24px; }
+    .hero { padding: 40px 0 28px; }
+    .hero .mark { width: 88px; height: 88px; border-radius: 22px; box-shadow: 0 14px 40px rgba(10,132,255,.35); margin-bottom: 20px; }
+    .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .hero h1 { font-size: clamp(28px, 6vw, 44px); line-height: 1.15; margin: 0 0 12px; }
     .hero p { color: var(--muted); font-size: 18px; margin: 0 0 24px; max-width: 640px; }
     .cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-    .btn { display: inline-block; background: var(--accent); color: var(--accent-ink); font-weight: 700; text-decoration: none; padding: 14px 22px; border-radius: 12px; }
-    .btn.ghost { background: none; color: var(--text); border: 1px solid var(--line); font-weight: 600; }
+    .btn { display: inline-block; background: var(--grad); color: var(--accent-ink); font-weight: 700; text-decoration: none; padding: 14px 22px; border-radius: 12px; box-shadow: 0 8px 24px rgba(34,196,245,.25); transition: transform .15s, box-shadow .15s; }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 12px 30px rgba(34,196,245,.35); }
+    .btn.ghost { background: rgba(255,255,255,.02); color: var(--text); border: 1px solid var(--line); font-weight: 600; box-shadow: none; }
+    .btn.ghost:hover { border-color: var(--accent); }
     .meta { color: var(--muted); font-size: 13px; margin-top: 14px; word-break: break-all; }
     .meta code { color: var(--text); }
     section { padding: 28px 0; border-top: 1px solid var(--line); }
     h2 { font-size: 22px; margin: 0 0 16px; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
-    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+    .card { background: linear-gradient(180deg, var(--surface-2), var(--surface)); border: 1px solid var(--line); border-radius: 14px; padding: 16px; position: relative; overflow: hidden; transition: border-color .15s; }
+    .card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 2px; background: var(--grad); opacity: .8; }
+    .card:hover { border-color: #2a4566; }
     .card h3 { margin: 0 0 6px; font-size: 16px; }
     .card p { margin: 0; color: var(--muted); font-size: 14px; }
     ol.steps { list-style: none; padding: 0; margin: 0; counter-reset: step; display: grid; gap: 10px; }
     ol.steps li { counter-increment: step; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px 14px 56px; position: relative; }
-    ol.steps li::before { content: counter(step); position: absolute; left: 16px; top: 14px; width: 28px; height: 28px; border-radius: 50%; background: var(--surface-2); border: 1px solid var(--accent); color: var(--accent); font-weight: 700; display: grid; place-items: center; font-size: 14px; }
+    ol.steps li::before { content: counter(step); position: absolute; left: 16px; top: 14px; width: 28px; height: 28px; border-radius: 50%; background: var(--grad); border: 0; color: var(--accent-ink); font-weight: 700; display: grid; place-items: center; font-size: 14px; }
     ol.steps b { display: block; }
     ol.steps span { color: var(--muted); font-size: 14px; }
     .tag { display: inline-block; font-size: 11px; padding: 1px 8px; border-radius: 999px; margin-left: 6px; vertical-align: 2px; border: 1px solid var(--line); color: var(--muted); }
@@ -59,15 +68,15 @@
     details p + p { margin-top: -6px; }
     .contact { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; margin-top: 18px; }
     .contact p { margin: 0; color: var(--muted); font-size: 15px; }
-    .contact a.mail { display: inline-block; background: var(--accent); color: var(--accent-ink); font-weight: 600; text-decoration: none; padding: 10px 16px; border-radius: 10px; }
+    .contact a.mail { display: inline-block; background: var(--grad); color: var(--accent-ink); font-weight: 600; text-decoration: none; padding: 10px 16px; border-radius: 10px; }
     .support { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; background: var(--surface); border: 1px solid var(--accent); border-radius: 14px; padding: 18px; }
     .support p { margin: 0; color: var(--muted); font-size: 15px; max-width: 560px; }
     .support p b { color: var(--text); }
     .note { border-left: 3px solid var(--warn); padding: 8px 14px; background: var(--surface); border-radius: 0 10px 10px 0; color: var(--muted); font-size: 14px; }
     footer { color: var(--muted); font-size: 13px; padding: 28px 0 40px; border-top: 1px solid var(--line); }
-    .to-top { position: fixed; right: 16px; bottom: 20px; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface-2); color: var(--accent); font-size: 20px; line-height: 1; cursor: pointer; box-shadow: 0 6px 18px rgba(0,0,0,.35); opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .2s, transform .2s; }
+    .to-top { position: fixed; right: 16px; bottom: 20px; width: 46px; height: 46px; border-radius: 50%; border: 0; background: var(--grad); color: var(--accent-ink); font-weight: 700; font-size: 20px; line-height: 1; cursor: pointer; box-shadow: 0 6px 18px rgba(0,0,0,.35); opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .2s, transform .2s; }
     .to-top.show { opacity: 1; transform: none; pointer-events: auto; }
-    .to-top:hover { border-color: var(--accent); }
+    .to-top:hover { box-shadow: 0 8px 24px rgba(34,196,245,.45); }
     [data-en] { display: none; }
     html[lang="en"] [data-id] { display: none; }
     html[lang="en"] [data-en] { display: revert; }
@@ -84,19 +93,20 @@
   </header>
 
   <div class="hero">
-    <h1 data-id>Android Auto di layar cockpit motormu</h1>
-    <h1 data-en>Android Auto on your motorcycle's cockpit screen</h1>
+    <img class="mark" src="logo.png" alt="">
+    <h1 data-id>Android Auto di <span class="grad-text">layar cockpit motormu</span></h1>
+    <h1 data-en>Android Auto on your <span class="grad-text">motorcycle's cockpit screen</span></h1>
     <p data-id>OmoSync menampilkan Android Auto pas di layar lebar 1920×720 OMOWAY OMO X. Ada juga suara mesin prosedural yang bercampur dengan Spotify dan Maps tanpa memotongnya.</p>
     <p data-en>OmoSync shows Android Auto laid out for the OMOWAY OMO X's wide 1920×720 screen, plus a procedural engine sound that mixes with Spotify and Maps without interrupting them.</p>
     <div class="cta">
-      <a class="btn" href="https://github.com/omosync/omosync.github.io/releases/download/v0.4.3/OmoSync-0.4.3.apk">
-        <span data-id>Unduh APK 0.4.3</span><span data-en>Download APK 0.4.3</span>
+      <a class="btn" href="https://github.com/omosync/omosync.github.io/releases/download/v0.4.4/OmoSync-0.4.4.apk">
+        <span data-id>Unduh APK 0.4.4</span><span data-en>Download APK 0.4.4</span>
       </a>
       <a class="btn ghost" href="https://github.com/omosync/omosync.github.io/releases">
         <span data-id>Semua rilis</span><span data-en>All releases</span>
       </a>
     </div>
-    <div class="meta">Android 10+ · SHA-256 <code>6df4b1f3507830769647d6bef130dcaa8d5e8fe63932065a75185331a2385b46</code></div>
+    <div class="meta">Android 10+ · SHA-256 <code>de3af4195ffa59beda7aaf6668ea67e8bd486f68dfae946a876c480cc280538e</code></div>
   </div>
 
   <section>
@@ -156,8 +166,8 @@
 
   <section>
     <h2 data-id>Coba tanpa motor: simulator di Mac/PC</h2><h2 data-en>Try without the bike: simulator on Mac/PC</h2>
-    <p data-id>Unduh <code>omosync-simulator-0.4.3.zip</code> dari <a href="https://github.com/omosync/omosync.github.io/releases">halaman rilis</a>, ekstrak, lalu jalankan (butuh Node.js 18+):</p>
-    <p data-en>Download <code>omosync-simulator-0.4.3.zip</code> from the <a href="https://github.com/omosync/omosync.github.io/releases">releases page</a>, unzip it and run (needs Node.js 18+):</p>
+    <p data-id>Unduh <code>omosync-simulator-0.4.4.zip</code> dari <a href="https://github.com/omosync/omosync.github.io/releases">halaman rilis</a>, ekstrak, lalu jalankan (butuh Node.js 18+):</p>
+    <p data-en>Download <code>omosync-simulator-0.4.4.zip</code> from the <a href="https://github.com/omosync/omosync.github.io/releases">releases page</a>, unzip it and run (needs Node.js 18+):</p>
 <pre>cd omosync-simulator
 npm install
 npm start            # or: PORT=8090 npm start</pre>
@@ -310,7 +320,7 @@ npm start            # or: PORT=8090 npm start</pre>
   </section>
 
   <footer>
-    OmoSync 0.4.3 · <a href="https://github.com/omosync/omosync.github.io/releases">Releases</a> · <a href="https://saweria.co/HelloWorld009" target="_blank" rel="noopener">Saweria</a> · <a href="mailto:masterz1030@gmail.com?subject=OmoSync">masterz1030@gmail.com</a>
+    OmoSync 0.4.4 · <a href="https://github.com/omosync/omosync.github.io/releases">Releases</a> · <a href="https://saweria.co/HelloWorld009" target="_blank" rel="noopener">Saweria</a> · <a href="mailto:masterz1030@gmail.com?subject=OmoSync">masterz1030@gmail.com</a>
   </footer>
 </div>
 <button type="button" class="to-top" aria-label="Back to top" title="Back to top">↑</button>
