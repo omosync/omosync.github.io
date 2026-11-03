@@ -2,12 +2,17 @@
 <html lang="id">
 <head>
   <meta charset="utf-8">
+  <meta name="color-scheme" content="dark">
+  <meta name="darkreader-lock">
+  <meta name="theme-color" content="#070d1a">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OmoSync</title>
   <meta name="description" content="Android Auto di layar cockpit motor OMOWAY OMO X lewat Wi-Fi, plus suara mesin prosedural.">
   <link rel="icon" href="logo.png" type="image/png">
   <style>
+    /* The page is dark by design; saying so keeps browsers' forced dark mode from re-colouring it. */
     :root {
+      color-scheme: dark;
       /* from the logo: blue → cyan → teal on deep navy */
       --bg: #070d1a; --surface: #0e1828; --surface-2: #132238; --line: #1e2e47;
       --text: #e6edf7; --muted: #8b9ab3; --accent: #22c4f5; --accent-2: #2ee6a8; --blue: #0a84ff;
@@ -26,7 +31,10 @@
     .lang button[aria-pressed="true"] { color: var(--text); border-color: var(--accent); }
     .hero { padding: 40px 0 28px; }
     .hero .mark { width: 88px; height: 88px; border-radius: 22px; box-shadow: 0 14px 40px rgba(10,132,255,.35); margin-bottom: 20px; }
-    .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .grad-text { color: var(--accent); }
+    @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+      .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    }
     .hero h1 { font-size: clamp(28px, 6vw, 44px); line-height: 1.15; margin: 0 0 12px; }
     .hero p { color: var(--muted); font-size: 18px; margin: 0 0 24px; max-width: 640px; }
     .cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
@@ -99,14 +107,14 @@
     <p data-id>OmoSync menampilkan Android Auto pas di layar lebar 1920×720 OMOWAY OMO X. Ada juga suara mesin prosedural yang bercampur dengan Spotify dan Maps tanpa memotongnya.</p>
     <p data-en>OmoSync shows Android Auto laid out for the OMOWAY OMO X's wide 1920×720 screen, plus a procedural engine sound that mixes with Spotify and Maps without interrupting them.</p>
     <div class="cta">
-      <a class="btn" href="https://github.com/omosync/omosync.github.io/releases/download/v0.4.4/OmoSync-0.4.4.apk">
-        <span data-id>Unduh APK 0.4.4</span><span data-en>Download APK 0.4.4</span>
+      <a class="btn" href="https://github.com/omosync/omosync.github.io/releases/download/v0.4.5/OmoSync-0.4.5.apk">
+        <span data-id>Unduh APK 0.4.5</span><span data-en>Download APK 0.4.5</span>
       </a>
       <a class="btn ghost" href="https://github.com/omosync/omosync.github.io/releases">
         <span data-id>Semua rilis</span><span data-en>All releases</span>
       </a>
     </div>
-    <div class="meta">Android 10+ · SHA-256 <code>de3af4195ffa59beda7aaf6668ea67e8bd486f68dfae946a876c480cc280538e</code></div>
+    <div class="meta">Android 10+ · SHA-256 <code>bc91f712b3b599cd3d9948a4df44ec977a76a9f2b7210171f413f0ed4afd25d9</code></div>
   </div>
 
   <section>
@@ -166,13 +174,13 @@
 
   <section>
     <h2 data-id>Coba tanpa motor: simulator di Mac/PC</h2><h2 data-en>Try without the bike: simulator on Mac/PC</h2>
-    <p data-id>Unduh <code>omosync-simulator-0.4.4.zip</code> dari <a href="https://github.com/omosync/omosync.github.io/releases">halaman rilis</a>, ekstrak, lalu jalankan (butuh Node.js 18+):</p>
-    <p data-en>Download <code>omosync-simulator-0.4.4.zip</code> from the <a href="https://github.com/omosync/omosync.github.io/releases">releases page</a>, unzip it and run (needs Node.js 18+):</p>
+    <p data-id>Unduh <code>omosync-simulator-0.4.5.zip</code> dari <a href="https://github.com/omosync/omosync.github.io/releases">halaman rilis</a>, ekstrak, lalu jalankan (butuh Node.js 18+):</p>
+    <p data-en>Download <code>omosync-simulator-0.4.5.zip</code> from the <a href="https://github.com/omosync/omosync.github.io/releases">releases page</a>, unzip it and run (needs Node.js 18+):</p>
 <pre>cd omosync-simulator
 npm install
 npm start            # or: PORT=8090 npm start</pre>
-    <p data-id>Buka <code>http://localhost:8080</code> di Chrome. Sambungkan HP dan komputer ke Wi-Fi yang sama. Di OmoSync, tab <b>Cockpit</b>: tekan <b>Start Android Auto</b>, lalu di kartu <b>Head unit</b> pilih <b>Mac/PC simulator</b>, tekan <b>Find simulator on Wi-Fi</b>, lalu <b>Connect</b>.</p>
-    <p data-en>Open <code>http://localhost:8080</code> in Chrome. Put the phone and the computer on the same Wi-Fi. In OmoSync's <b>Cockpit</b> tab tap <b>Start Android Auto</b>, then in the <b>Head unit</b> card choose <b>Mac/PC simulator</b>, tap <b>Find simulator on Wi-Fi</b>, then <b>Connect</b>.</p>
+    <p data-id>Buka <code>http://localhost:8080</code> di Chrome. Sambungkan HP dan komputer ke Wi-Fi yang sama. Di OmoSync, tab <b>Cockpit</b>: di kartu <b>Head unit</b> pilih <b>Mac/PC simulator</b>, tekan <b>Find simulator on Wi-Fi</b>, lalu <b>Connect</b>; setelah tersambung tekan <b>Start Android Auto</b>.</p>
+    <p data-en>Open <code>http://localhost:8080</code> in Chrome. Put the phone and the computer on the same Wi-Fi. In OmoSync's <b>Cockpit</b> tab, in the <b>Head unit</b> card choose <b>Mac/PC simulator</b>, tap <b>Find simulator on Wi-Fi</b>, then <b>Connect</b>; once connected tap <b>Start Android Auto</b>.</p>
   </section>
 
   <section id="support">
@@ -233,8 +241,8 @@ npm start            # or: PORT=8090 npm start</pre>
       <summary><span data-id>Penggunaan</span><span data-en>Using it</span><span class="count">· 6</span></summary>
       <details>
         <summary><span data-id>Bagaimana urutan menampilkan di motor?</span><span data-en>How do I get it on the bike's screen?</span></summary>
-        <p data-id>(1) Nyalakan/buka kunci motor lewat aplikasi OMOWAY, lalu <b>force stop</b> aplikasi itu — motor hanya melayani satu HP. (2) Di tab <b>Cockpit</b> tekan <b>Start Android Auto</b>; pratinjau muncul di HP. (3) Di kartu <b>Head unit</b> pilih <b>OMO X bike</b>, tekan <b>Find</b>, pilih layar <code>OMO-…</code>, lalu <b>Connect</b> (lain kali tersambung otomatis). (4) Di motor buka layar <b>Navigasi</b>: <i>Start Navigation</i> di layar READY, atau ikon empat titik dua kali lalu joystick ke kiri. Gambar tampil di area peta layar itu.</p>
-        <p data-en>(1) Start/unlock the bike with the OMOWAY app, then <b>force-stop</b> that app — the bike serves one phone at a time. (2) In the <b>Cockpit</b> tab tap <b>Start Android Auto</b>; a preview appears on the phone. (3) In the <b>Head unit</b> card choose <b>OMO X bike</b>, tap <b>Find</b>, pick the <code>OMO-…</code> screen, then <b>Connect</b> (it reconnects by itself next time). (4) On the bike open the <b>Navigation</b> screen: <i>Start Navigation</i> on the READY screen, or the four-dot icon twice then joystick left. The picture fills the map area of that screen.</p>
+        <p data-id>(1) Nyalakan/buka kunci motor lewat aplikasi OMOWAY, lalu <b>force stop</b> aplikasi itu — motor hanya melayani satu HP. (2) Di tab <b>Cockpit</b>, kartu <b>Head unit</b>: pilih <b>OMO X bike</b>, tekan <b>Find</b>, pilih layar <code>OMO-…</code>, lalu <b>Connect</b> (lain kali cukup <b>Connect</b>). (3) Setelah tersambung, tekan <b>Start Android Auto</b>; tombol ini baru aktif saat head unit tersambung. (4) Di motor buka layar <b>Navigasi</b>: <i>Start Navigation</i> di layar READY, atau ikon empat titik dua kali lalu joystick ke kiri. Gambar tampil di area peta layar itu.</p>
+        <p data-en>(1) Start/unlock the bike with the OMOWAY app, then <b>force-stop</b> that app — the bike serves one phone at a time. (2) In the <b>Cockpit</b> tab's <b>Head unit</b> card choose <b>OMO X bike</b>, tap <b>Find</b>, pick the <code>OMO-…</code> screen, then <b>Connect</b> (next time just <b>Connect</b>). (3) Once connected tap <b>Start Android Auto</b>; it is only enabled while a head unit is connected. (4) On the bike open the <b>Navigation</b> screen: <i>Start Navigation</i> on the READY screen, or the four-dot icon twice then joystick left. The picture fills the map area of that screen.</p>
       </details>
       <details>
         <summary><span data-id>Layar motor tidak bisa disentuh — bagaimana mengendalikan Android Auto?</span><span data-en>The bike screen has no touch — how do I control Android Auto?</span></summary>
@@ -320,7 +328,7 @@ npm start            # or: PORT=8090 npm start</pre>
   </section>
 
   <footer>
-    OmoSync 0.4.4 · <a href="https://github.com/omosync/omosync.github.io/releases">Releases</a> · <a href="https://saweria.co/HelloWorld009" target="_blank" rel="noopener">Saweria</a> · <a href="mailto:masterz1030@gmail.com?subject=OmoSync">masterz1030@gmail.com</a>
+    OmoSync 0.4.5 · <a href="https://github.com/omosync/omosync.github.io/releases">Releases</a> · <a href="https://saweria.co/HelloWorld009" target="_blank" rel="noopener">Saweria</a> · <a href="mailto:masterz1030@gmail.com?subject=OmoSync">masterz1030@gmail.com</a>
   </footer>
 </div>
 <button type="button" class="to-top" aria-label="Back to top" title="Back to top">↑</button>
