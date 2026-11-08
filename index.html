@@ -44,6 +44,7 @@
     .btn.ghost:hover { border-color: var(--accent); }
     .meta { color: var(--muted); font-size: 13px; margin-top: 14px; word-break: break-all; }
     .meta code { color: var(--text); }
+    .meta .dl .n { color: var(--text); font-weight: 700; }
     section { padding: 28px 0; border-top: 1px solid var(--line); }
     h2 { font-size: 22px; margin: 0 0 16px; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
@@ -125,7 +126,7 @@
         <span data-id>Semua rilis</span><span data-en>All releases</span>
       </a>
     </div>
-    <div class="meta">Android 10+ · SHA-256 <code>93961a518bfb762f884e5e0e986c06bd313735e78b0e1c62a70e7b8a99ea194a</code></div>
+    <div class="meta"><span class="dl" data-dl="omosync/omosync.github.io" hidden><b class="n"></b> <span data-id>unduhan</span><span data-en>downloads</span> · </span>Android 10+ · SHA-256 <code>93961a518bfb762f884e5e0e986c06bd313735e78b0e1c62a70e7b8a99ea194a</code></div>
   </div>
 
   <section>
@@ -359,6 +360,21 @@ npm start            # or: PORT=8090 npm start</pre>
 <div class="viewer" hidden><img alt=""></div>
 <button type="button" class="to-top" aria-label="Back to top" title="Back to top">↑</button>
 <script>
+  (function () {
+    // Jumlah unduhan APK dari rilis GitHub (API publik, dibaca oleh browser pengunjung). Gagal/limit -> lencana tetap tersembunyi.
+    document.querySelectorAll('[data-dl]').forEach(function (el) {
+      fetch('https://api.github.com/repos/' + el.getAttribute('data-dl') + '/releases?per_page=100', { headers: { Accept: 'application/vnd.github+json' } })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (rels) {
+          var n = 0;
+          rels.forEach(function (r) { (r.assets || []).forEach(function (a) { if (/\.apk$/i.test(a.name)) n += a.download_count || 0; }); });
+          if (n <= 0) return;
+          el.querySelector('.n').textContent = n.toLocaleString();
+          el.hidden = false;
+        })
+        .catch(function () { /* offline atau limit API: biarkan tersembunyi */ });
+    });
+  })();
   (function () {
     var top = document.querySelector('.to-top');
     function onScroll() { top.classList.toggle('show', window.scrollY > 700); }
