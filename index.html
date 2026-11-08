@@ -85,6 +85,17 @@
     .to-top { position: fixed; right: 16px; bottom: 20px; width: 46px; height: 46px; border-radius: 50%; border: 0; background: var(--grad); color: var(--accent-ink); font-weight: 700; font-size: 20px; line-height: 1; cursor: pointer; box-shadow: 0 6px 18px rgba(0,0,0,.35); opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .2s, transform .2s; }
     .to-top.show { opacity: 1; transform: none; pointer-events: auto; }
     .to-top:hover { box-shadow: 0 8px 24px rgba(34,196,245,.45); }
+    /* galeri tangkapan layar HP (potret) */
+    .phones { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; }
+    .phones figure { margin: 0; }
+    .phones a { display: block; border-radius: 22px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); box-shadow: 0 14px 34px rgba(0,0,0,.35); transition: transform .2s, border-color .2s; }
+    .phones a:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .phones img { display: block; width: 100%; height: auto; }
+    .phones figcaption { padding: 8px 4px 0; font-size: 14px; color: var(--muted); }
+    .phones figcaption b { display: block; color: var(--text); font-size: 15px; }
+    .viewer { position: fixed; inset: 0; background: rgba(3,7,16,.92); display: grid; place-items: center; padding: 16px; z-index: 10; }
+    .viewer img { max-width: 100%; max-height: 94vh; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,.6); }
+    [hidden] { display: none !important; }
     [data-en] { display: none; }
     html[lang="en"] [data-id] { display: none; }
     html[lang="en"] [data-en] { display: revert; }
@@ -116,6 +127,20 @@
     </div>
     <div class="meta">Android 10+ · SHA-256 <code>93961a518bfb762f884e5e0e986c06bd313735e78b0e1c62a70e7b8a99ea194a</code></div>
   </div>
+
+  <section>
+    <h2 data-id>Tangkapan layar</h2><h2 data-en>Screenshots</h2>
+    <div class="phones">
+      <figure><a href="screenshots/cockpit.jpg" data-view><img src="screenshots/cockpit.jpg" loading="lazy" alt="OmoSync: Cockpit"></a>
+        <figcaption><b>Cockpit</b><span data-id>Mulai Android Auto dan lihat pratinjaunya di HP.</span><span data-en>Start Android Auto and preview it on the phone.</span></figcaption></figure>
+      <figure><a href="screenshots/head-unit.jpg" data-view><img src="screenshots/head-unit.jpg" loading="lazy" alt="OmoSync: Head unit"></a>
+        <figcaption><b>Head unit</b><span data-id>Sambung ke motor OMO X atau simulator Mac/PC.</span><span data-en>Connect to the OMO X or the Mac/PC simulator.</span></figcaption></figure>
+      <figure><a href="screenshots/setup.jpg" data-view><img src="screenshots/setup.jpg" loading="lazy" alt="OmoSync: Setup"></a>
+        <figcaption><b>Setup</b><span data-id>Setiap langkah diperiksa dan dipandu.</span><span data-en>Every step is checked and guided.</span></figcaption></figure>
+      <figure><a href="screenshots/engine-sound.jpg" data-view><img src="screenshots/engine-sound.jpg" loading="lazy" alt="OmoSync: Engine sound"></a>
+        <figcaption><b><span data-id>Suara mesin</span><span data-en>Engine sound</span></b><span data-id>Sebelas preset, bercampur dengan Maps dan musik.</span><span data-en>Eleven presets, mixed over Maps and music.</span></figcaption></figure>
+    </div>
+  </section>
 
   <section>
     <h2 data-id>Fitur</h2><h2 data-en>Features</h2>
@@ -331,6 +356,7 @@ npm start            # or: PORT=8090 npm start</pre>
     OmoSync 0.4.7 · <a href="https://github.com/omosync/omosync.github.io/releases">Releases</a> · <a href="https://saweria.co/HelloWorld009" target="_blank" rel="noopener">Saweria</a> · <a href="mailto:masterz1030@gmail.com?subject=OmoSync">masterz1030@gmail.com</a>
   </footer>
 </div>
+<div class="viewer" hidden><img alt=""></div>
 <button type="button" class="to-top" aria-label="Back to top" title="Back to top">↑</button>
 <script>
   (function () {
@@ -339,6 +365,21 @@ npm start            # or: PORT=8090 npm start</pre>
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
     top.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  })();
+  (function () {
+    // Tangkapan layar: ketuk untuk melihat besar, ketuk lagi / Esc untuk menutup.
+    var viewer = document.querySelector('.viewer'), img = viewer.querySelector('img');
+    document.querySelectorAll('[data-view]').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        img.src = el.getAttribute('href');
+        img.alt = (el.querySelector('img') || {}).alt || '';
+        viewer.hidden = false;
+      });
+    });
+    function close() { viewer.hidden = true; img.removeAttribute('src'); }
+    viewer.addEventListener('click', close);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   })();
   (function () {
     var root = document.documentElement;
