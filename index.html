@@ -185,13 +185,18 @@
       </div>
       <div class="card">
         <h3 data-id>Suara mesin</h3><h3 data-en>Engine sound</h3>
-        <p data-id>Sebelas preset sintesis (inline-4, crossplane, V4, triple, twin, single, 2-tak, turbin, …) dengan gearbox virtual, dari GPS atau slider simulasi.</p>
-        <p data-en>Eleven synthesized presets (inline-4, crossplane, V4, triple, twin, single, two-stroke, turbine, …) with a virtual gearbox, driven by GPS or a simulation slider.</p>
+        <p data-id>Sebelas preset sintesis (inline-4, crossplane, V4, triple, twin, single, 2-tak, turbin, …) dengan gearbox virtual, dari GPS atau slider simulasi. Audio latensi rendah, dan latensi keluarannya ditampilkan di aplikasi.</p>
+        <p data-en>Eleven synthesized presets (inline-4, crossplane, V4, triple, twin, single, two-stroke, turbine, …) with a virtual gearbox, driven by GPS or a simulation slider. Low-latency audio, with the measured output latency shown in the app.</p>
       </div>
       <div class="card">
         <h3 data-id>Langsung ke motor OMO X</h3><h3 data-en>Straight to the OMO X</h3>
         <p data-id>Wi-Fi Direct ke layar motor, protokol yang sama dengan aplikasi OMOWAY. Internet HP tetap lewat seluler.</p>
         <p data-en>Wi-Fi Direct to the bike's screen, same protocol as the OMOWAY app. The phone's internet stays on cellular.</p>
+      </div>
+      <div class="card">
+        <h3 data-id>Menyatu dengan HUD motor</h3><h3 data-en>Blends with the bike's HUD</h3>
+        <p data-id>Panel belok bawaan motor tidak lagi menutupi Android Auto, dan area di sekitar gambar mengikuti mode siang/malam motor, bukan blok hitam.</p>
+        <p data-en>The bike's own turn panel no longer covers Android Auto, and the area around the picture follows the bike's day/night mode instead of a black block.</p>
       </div>
     </div>
   </section>
@@ -324,7 +329,7 @@ npm start            # or: PORT=8090 npm start</pre>
       </details>
     </details>
     <details class="group">
-      <summary><span data-id>Masalah</span><span data-en>Troubleshooting</span><span class="count">· 5</span></summary>
+      <summary><span data-id>Masalah</span><span data-en>Troubleshooting</span><span class="count">· 7</span></summary>
       <details>
         <summary><span data-id>Tidak bisa tersambung ke motor / layar tidak muncul</span><span data-en>Can't connect to the bike / nothing shows</span></summary>
         <p data-id>Periksa: aplikasi OMOWAY sudah di-<b>force stop</b> (motor menolak HP kedua dengan status <i>busy</i>); motor menyala dan layarnya aktif; izin <i>Nearby devices</i> diberikan; di motor sedang di layar <b>Navigasi</b> — di layar lain video tidak digambar. Kalau masih gagal, <i>Disconnect</i> lalu <i>Find</i> ulang, atau <i>Forget this bike</i> di Lanjutan.</p>
@@ -337,8 +342,18 @@ npm start            # or: PORT=8090 npm start</pre>
       </details>
       <details>
         <summary><span data-id>Jam, baterai, atau kecepatan motor menutupi gambar</span><span data-en>The bike's clock, battery or speed overlaps the picture</span></summary>
-        <p data-id>Firmware motor menggambar HUD-nya di atas video dan itu tidak bisa dimatikan. OmoSync menata Android Auto di dalam area aman (default: 120 px kanan, 36 px bawah dari 960×360). Kalau di motormu masih tertutup, ubah nilainya di Cockpit → Lanjutan → <i>Keep clear of the bike's HUD</i>.</p>
-        <p data-en>The bike's firmware draws its HUD over the video and that cannot be switched off. OmoSync lays Android Auto out inside a safe area (default: 120 px right, 36 px bottom of 960×360). If something is still covered on your bike, adjust the values under Cockpit → Advanced → <i>Keep clear of the bike's HUD</i>.</p>
+        <p data-id>Firmware motor menggambar HUD-nya di atas video dan itu tidak bisa dimatikan. OmoSync menata Android Auto di dalam area aman (default: 120 px kanan, 36 px bawah dari 960×360). Kalau di motormu masih tertutup, ubah nilainya di Cockpit → Lanjutan → <i>Area aman dari HUD motor</i>. Area di luarnya diisi <i>Warna di sekitar gambar</i> (Auto mengikuti mode siang/malam motor).</p>
+        <p data-en>The bike's firmware draws its HUD over the video and that cannot be switched off. OmoSync lays Android Auto out inside a safe area (default: 120 px right, 36 px bottom of 960×360). If something is still covered on your bike, adjust the values under Cockpit → Advanced → <i>Keep clear of the bike's HUD</i>. The area outside it is filled with <i>Colour around the picture</i> (Auto follows the bike's day/night mode).</p>
+      </details>
+      <details>
+        <summary><span data-id>Panel belok motor ("0 m Turn Left") muncul di kiri atas</span><span data-en>The bike's turn panel ("0 m Turn Left") shows at the top left</span></summary>
+        <p data-id>Sejak 0.4.8 OmoSync memberi tahu motor bahwa navigasi OMOWAY sudah selesai, sehingga panel itu hilang. Pastikan Cockpit → Lanjutan → <i>Panel belok motor</i> bernilai <b>8</b> (bawaan), lalu putuskan dan sambungkan ulang ke motor.</p>
+        <p data-en>Since 0.4.8 OmoSync tells the bike the OMOWAY navigation has ended, so the panel goes away. Make sure Cockpit → Advanced → <i>Bike turn panel</i> is <b>8</b> (default), then disconnect and reconnect to the bike.</p>
+      </details>
+      <details>
+        <summary><span data-id>Suara mesin terasa terlambat</span><span data-en>The engine sound feels late</span></summary>
+        <p data-id>Tab <i>Engine sound</i> menampilkan latensi keluaran yang terukur. Di speaker HP biasanya hanya puluhan milidetik; lewat Bluetooth (motor atau helm) ada tambahan 100–250 ms dari Bluetooth itu sendiri yang tidak bisa dihilangkan aplikasi mana pun.</p>
+        <p data-en>The <i>Engine sound</i> tab shows the measured output latency. On the phone speaker it is usually a few tens of milliseconds; over Bluetooth (bike or helmet) Bluetooth itself adds 100–250 ms that no app can remove.</p>
       </details>
       <details>
         <summary><span data-id>Gambar patah-patah atau tertunda</span><span data-en>The picture stutters or lags</span></summary>
