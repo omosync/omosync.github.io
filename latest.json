@@ -1,7 +1,7 @@
 {
-  "versionName": "0.5.2",
-  "versionCode": 18,
-  "apk": "https://github.com/omosync/omosync.github.io/releases/download/v0.5.2/OmoSync-0.5.2.apk",
-  "sha256": "dd0d8ec2388ec628acedb9ed534b4cb2bb9006870be5a698eb68bb69eec23b24",
-  "notes": "Perbaikan\n• Memutar layar tidak lagi membuat aplikasi membeku sekitar 1 detik. Di 0.5.1 splash screen ikut ditahan saat layar diputar, padahal tidak tampil; kini splash hanya ditahan saat aplikasi dibuka dari awal."
+  "versionName": "0.5.3",
+  "versionCode": 19,
+  "apk": "https://github.com/omosync/omosync.github.io/releases/download/v0.5.3/OmoSync-0.5.3.apk",
+  "sha256": "131b5d5cc44fea26c7813ce1347d2113487dd8694e7bebf216131aac261dc0de",
+  "notes": "Baru\n• Kartu \"Tentang & pembaruan\" di bawah tab Cockpit: versi terpasang dan tombol \"Periksa pembaruan\". Hasilnya tampil langsung (sudah terbaru, versi baru tersedia, atau gagal memeriksa). Selama berkendara (koneksi layar, Android Auto, atau suara mesin aktif) pembaruan ditahan supaya perjalanan tidak terputus.\n• Versi terpasang juga tampil kecil di samping nama aplikasi."
 }
