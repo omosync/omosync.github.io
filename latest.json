@@ -1,0 +1,7 @@
+{
+  "versionName": "0.5.0",
+  "versionCode": 16,
+  "apk": "https://github.com/omosync/omosync.github.io/releases/download/v0.5.0/OmoSync-0.5.0.apk",
+  "sha256": "9558a99e605e299f85412f39732dc5ade879c6a0ef25cb8e6566a1ce914ee876",
+  "notes": "Update di dalam aplikasi\n• Setiap kali dibuka, OmoSync memeriksa rilis baru. Bila ada, muncul popup Perbarui / Nanti beserta catatan rilisnya.\n• Perbarui mengunduh APK dari halaman rilis ini dengan progres, memeriksa SHA-256-nya, lalu membuka installer Android. Selama unduhan, aplikasi terkunci; Batal menghentikannya.\n• Popup tidak muncul saat OmoSync sedang dipakai (terhubung ke motor, casting, atau suara mesin berbunyi). Popup ditunda ke pembukaan berikutnya.\n• Saat offline atau server tidak terjangkau, tidak ada popup maupun pesan error.\n• Pemasangan pertama lewat popup meminta izin sekali: Izinkan dari sumber ini untuk OmoSync.\n\nLainnya\n• Peringatan Setup belum selesai tidak lagi menutupi popup update.\n\nIzin baru: pasang aplikasi (REQUEST_INSTALL_PACKAGES), hanya untuk membuka installer Android dengan file update yang sudah diverifikasi.\n\nCatatan: versi 0.4.9 ke bawah belum punya pemeriksa update, jadi 0.5.0 perlu dipasang manual sekali dari situs."
+}
