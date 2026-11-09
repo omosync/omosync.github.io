@@ -1,13 +1,24 @@
 {
   "releases": [
     {
+      "tag_name": "v0.5.3",
+      "published_at": "2026-11-09T19:26:08Z",
+      "body": "## OmoSync 0.5.3\n\n**Baru**\n- Kartu \"Tentang & pembaruan\" di bawah tab Cockpit: versi terpasang dan tombol \"Periksa pembaruan\". Hasilnya tampil langsung (sudah terbaru, versi baru tersedia, atau gagal memeriksa). Selama berkendara (koneksi layar, Android Auto, atau suara mesin aktif) pembaruan ditahan supaya perjalanan tidak terputus.\n- Versi terpasang juga tampil kecil di samping nama aplikasi.\n",
+      "assets": [
+        {
+          "name": "OmoSync-0.5.3.apk",
+          "download_count": 0
+        }
+      ]
+    },
+    {
       "tag_name": "v0.5.2",
       "published_at": "2026-11-09T18:50:08Z",
       "body": "## OmoSync 0.5.2\n\n**Perbaikan**\n- Memutar layar tidak lagi membuat aplikasi membeku sekitar 1 detik. Di 0.5.1 splash screen ikut ditahan saat layar diputar, padahal tidak tampil; kini splash hanya ditahan saat aplikasi dibuka dari awal.\n",
       "assets": [
         {
           "name": "OmoSync-0.5.2.apk",
-          "download_count": 0
+          "download_count": 2
         }
       ]
     },
@@ -18,14 +29,14 @@
       "assets": [
         {
           "name": "OmoSync-0.5.1.apk",
-          "download_count": 3
+          "download_count": 4
         }
       ]
     },
     {
       "tag_name": "v0.5.0",
       "published_at": "2026-11-09T16:53:39Z",
-      "body": "## OmoSync 0.5.0\n\n**Update di dalam aplikasi**\n- Setiap kali dibuka, OmoSync memeriksa rilis baru. Bila ada, muncul popup **Perbarui / Nanti** beserta catatan rilisnya.\n- **Perbarui** mengunduh APK dari halaman rilis ini dengan progres, memeriksa SHA-256-nya, lalu membuka installer Android. Selama unduhan, aplikasi terkunci; **Batal** menghentikannya.\n- Popup tidak muncul saat OmoSync sedang dipakai (terhubung ke motor, casting, atau suara mesin berbunyi). Popup ditunda ke pembukaan berikutnya.\n- Saat offline atau server tidak terjangkau, tidak ada popup maupun pesan error.\n- Pemasangan pertama lewat popup meminta izin sekali: *Izinkan dari sumber ini* untuk OmoSync.\n\n**Lainnya**\n- Peringatan *Setup belum selesai* tidak lagi menutupi popup update.\n\nIzin baru: *pasang aplikasi* (REQUEST_INSTALL_PACKAGES), hanya untuk membuka installer Android dengan file update yang sudah diverifikasi.\n\nCatatan: versi 0.4.9 ke bawah belum punya pemeriksa update, jadi 0.5.0 perlu dipasang manual sekali dari situs.\n",
+      "body": "",
       "assets": [
         {
           "name": "OmoSync-0.5.0.apk",
