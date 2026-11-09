@@ -1,13 +1,24 @@
 {
   "releases": [
     {
+      "tag_name": "v0.5.2",
+      "published_at": "2026-11-09T18:50:08Z",
+      "body": "## OmoSync 0.5.2\n\n**Perbaikan**\n- Memutar layar tidak lagi membuat aplikasi membeku sekitar 1 detik. Di 0.5.1 splash screen ikut ditahan saat layar diputar, padahal tidak tampil; kini splash hanya ditahan saat aplikasi dibuka dari awal.\n",
+      "assets": [
+        {
+          "name": "OmoSync-0.5.2.apk",
+          "download_count": 0
+        }
+      ]
+    },
+    {
       "tag_name": "v0.5.1",
       "published_at": "2026-11-09T18:00:22Z",
       "body": "## OmoSync 0.5.1\n\n**Splash screen baru**\n- Logo OmoSync kini beranimasi saat aplikasi dibuka (Android 12+): dua jalan berputar masuk, panah muncul, marka jalan tergambar. Android 10–11 menampilkan logo diam.\n\n**Selalu mulai dari Setup**\n- Setiap kali dibuka dari awal, OmoSync membuka halaman *Setup* lebih dulu supaya semua pemeriksaan terlihat. Saat sedang terhubung ke motor, casting, atau suara mesin berbunyi, aplikasi tetap membuka halaman terakhir.\n\n**Autostart Xiaomi diperbaiki**\n- Android Auto adalah aplikasi sistem di HP Xiaomi, jadi tidak ada di daftar Autostart dan sudah diizinkan. Langkah ini kini hanya meminta Autostart untuk OmoSync dan menjadi hijau sendiri bila pengaturannya terbaca.\n\n**Update lebih andal**\n- Unduhan update berjalan di latar belakang dengan progres di notifikasi, lengkap dengan tombol *Batal*. Bila selesai saat aplikasi tidak dibuka, notifikasi *siap dipasang* membuka installer.\n- Bila koneksi terputus, unduhan dilanjutkan otomatis dari posisi terakhir (hingga 3 kali). Bila tetap gagal, tombol *Lanjutkan* meneruskan dari situ, juga saat aplikasi dibuka lain kali.\n- Pesan gagal kini menyebut penyebabnya: HP tidak terhubung internet, error dari server, koneksi terputus, atau penyimpanan penuh.\n- Menutup aplikasi dari daftar aplikasi terbaru saat mengunduh membatalkan unduhan dan menghapus filenya.\n",
       "assets": [
         {
           "name": "OmoSync-0.5.1.apk",
-          "download_count": 2
+          "download_count": 3
         }
       ]
     },
@@ -25,7 +36,7 @@
     {
       "tag_name": "v0.4.9",
       "published_at": "2026-11-09T15:15:16Z",
-      "body": "## OmoSync 0.4.9\n\n**Layar motor**\n- Area video di luar *area aman* (di bawah kolom ikon dan bar bawah HUD motor) tidak lagi hitam. Sebelumnya bingkai Android Auto tampak sebagai blok hitam yang bertabrakan dengan latar terang HUD motor. Kini area itu diisi warna yang menyatu: pengaturan baru **Warna di sekitar gambar** di *Pengaturan lanjutan* — *Auto* (terang saat motor dalam mode siang, biru gelap OMOWAY `#131B28` saat mode malam, mengikuti pesan siang/malam dari motor), atau manual *Terang / Putih / Gelap / Hitam*. Berlaku langsung tanpa sambung ulang; juga berlaku untuk mode Mirror.\n\nLanjutan dari 0.4.8 (panel belok motor disembunyikan lewat `navi_status` 8, latensi suara mesin lebih rendah, latensi keluaran ditampilkan di tab *Engine sound*).\n",
+      "body": "",
       "assets": [
         {
           "name": "OmoSync-0.4.9.apk",
