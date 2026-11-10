@@ -1,13 +1,24 @@
 {
   "releases": [
     {
+      "tag_name": "v0.5.7",
+      "published_at": "2026-11-10T17:52:29Z",
+      "body": "## OmoSync 0.5.7\n\n**Tetap 30 fps di kantong sejak pertama kali dipakai**\n- Saat Start atau Connect, OmoSync kini mengingatkan bila HyperOS masih membatasi OmoSync dengan penghemat baterai. Ketuk **Allow** untuk membuka halaman baterai OmoSync, lalu pilih \"No restrictions\".\n- Android Auto / koneksi baru dimulai sesudah Anda kembali dari halaman itu. Bila dimulai lebih dulu, gambar ke layar motor bisa tetap sekitar 15 fps di kantong walaupun \"No restrictions\" sudah dipilih. Diuji di POCO X5: 30 fps dengan layar terkunci dan HP memakai baterai.\n- Pengingat muncul sekali per pemakaian dan tidak muncul bila OmoSync sudah dikecualikan.\n\n**Setup lebih jujur**\n- Langkah baterai yang hanya Anda tandai \"I've done this\" kini diberi keterangan bahwa Android tidak bisa memeriksanya, dan tombol halaman baterainya tetap ada untuk memastikan.\n- Langkah yang sudah terperiksa otomatis tidak lagi menampilkan tombol \"Not done yet\".\n",
+      "assets": [
+        {
+          "name": "OmoSync-0.5.7.apk",
+          "download_count": 0
+        }
+      ]
+    },
+    {
       "tag_name": "v0.5.5",
       "published_at": "2026-11-10T16:50:16Z",
       "body": "## OmoSync 0.5.5\n\n**Tetap lancar di kantong**\n- Sebelum Start Android Auto atau Connect, OmoSync kini memeriksa pengaturan baterai. Bila penghemat baterai HyperOS masih membatasi OmoSync, muncul penjelasan singkat dan tombol yang langsung membuka pengaturan baterai OmoSync. Pilih \"No restrictions\" (Tanpa batasan).\n- Dengan penghemat baterai bawaan, HyperOS memperlambat OmoSync saat HP terkunci di kantong. Gambar di layar motor bisa turun ke 15 fps. Dengan \"No restrictions\", tetap 30 fps.\n- Anda tetap bisa melanjutkan tanpa mengubah pengaturan.\n",
       "assets": [
         {
           "name": "OmoSync-0.5.5.apk",
-          "download_count": 0
+          "download_count": 1
         }
       ]
     },
@@ -25,7 +36,7 @@
     {
       "tag_name": "v0.5.3",
       "published_at": "2026-11-09T19:26:08Z",
-      "body": "## OmoSync 0.5.3\n\n**Baru**\n- Kartu \"Tentang & pembaruan\" di bawah tab Cockpit: versi terpasang dan tombol \"Periksa pembaruan\". Hasilnya tampil langsung (sudah terbaru, versi baru tersedia, atau gagal memeriksa). Selama berkendara (koneksi layar, Android Auto, atau suara mesin aktif) pembaruan ditahan supaya perjalanan tidak terputus.\n- Versi terpasang juga tampil kecil di samping nama aplikasi.\n",
+      "body": "",
       "assets": [
         {
           "name": "OmoSync-0.5.3.apk",
