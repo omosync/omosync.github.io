@@ -1,7 +1,7 @@
 {
-  "versionName": "0.5.4",
-  "versionCode": 20,
-  "apk": "https://github.com/omosync/omosync.github.io/releases/download/v0.5.4/OmoSync-0.5.4.apk",
-  "sha256": "a97d108a7f9b4fc13614bb266836a4310a4ea0619825fc52526cae5fa0438d35",
-  "notes": "Lebih hemat baterai\n• Sesudah berkendara, OmoSync berhenti sendiri sekitar 1 menit setelah Android Auto, koneksi ke motor, dan suara mesin semuanya mati. Sebelumnya OmoSync tetap bekerja di latar sampai tombol Stop ditekan.\n• Saat suara mesin dimatikan, pemutar suaranya benar-benar berhenti (sebelumnya terus memutar suara hening).\n• Gambar Android Auto kini cukup diolah sekali untuk layar motor dan pratinjau di HP. Kerja CPU untuk video turun hampir separuh.\n• Bitrate bawaan ke layar motor 3 Mbps (sebelumnya 6 Mbps); pilihan Anda sendiri di Lanjutan tetap dipakai.\n• Saat motor dimatikan sementara koneksi masih aktif, pencarian motor makin jarang (paling sering sekali per menit) supaya Wi-Fi tidak terus memindai.\n\nLebih lancar di kantong\n• Gambar ke layar motor tetap 30 fps saat HP terkunci di kantong atau OmoSync di latar belakang (sebelumnya bisa turun ke 15-20 fps).\n• Langkah Setup baru: OmoSync: tanpa batasan baterai. Di HP Xiaomi/POCO, pilih \"No restrictions\" untuk OmoSync (dan Android Auto). Dengan penghemat baterai bawaan, HyperOS memperlambat OmoSync di kantong dan layar motor tersendat."
+  "versionName": "0.5.5",
+  "versionCode": 21,
+  "apk": "https://github.com/omosync/omosync.github.io/releases/download/v0.5.5/OmoSync-0.5.5.apk",
+  "sha256": "625c4befce732c1d2526cd2bc041a8a347e2ba155ae188f520c38162595fa523",
+  "notes": "Tetap lancar di kantong\n• Sebelum Start Android Auto atau Connect, OmoSync kini memeriksa pengaturan baterai. Bila penghemat baterai HyperOS masih membatasi OmoSync, muncul penjelasan singkat dan tombol yang langsung membuka pengaturan baterai OmoSync. Pilih \"No restrictions\" (Tanpa batasan).\n• Dengan penghemat baterai bawaan, HyperOS memperlambat OmoSync saat HP terkunci di kantong. Gambar di layar motor bisa turun ke 15 fps. Dengan \"No restrictions\", tetap 30 fps.\n• Anda tetap bisa melanjutkan tanpa mengubah pengaturan."
 }
