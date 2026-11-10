@@ -1,13 +1,24 @@
 {
   "releases": [
     {
+      "tag_name": "v0.5.4",
+      "published_at": "2026-11-10T09:23:10Z",
+      "body": "## OmoSync 0.5.4\n\n**Lebih hemat baterai**\n- Sesudah berkendara, OmoSync berhenti sendiri sekitar 1 menit setelah Android Auto, koneksi ke motor, dan suara mesin semuanya mati. Sebelumnya OmoSync tetap bekerja di latar sampai tombol Stop ditekan.\n- Saat suara mesin dimatikan, pemutar suaranya benar-benar berhenti (sebelumnya terus memutar suara hening).\n- Gambar Android Auto kini cukup diolah sekali untuk layar motor dan pratinjau di HP. Kerja CPU untuk video turun hampir separuh.\n- Bitrate bawaan ke layar motor 3 Mbps (sebelumnya 6 Mbps); pilihan Anda sendiri di Lanjutan tetap dipakai.\n- Saat motor dimatikan sementara koneksi masih aktif, pencarian motor makin jarang (paling sering sekali per menit) supaya Wi-Fi tidak terus memindai.\n\n**Lebih lancar di kantong**\n- Gambar ke layar motor tetap 30 fps saat HP terkunci di kantong atau OmoSync di latar belakang (sebelumnya bisa turun ke 15-20 fps).\n- Langkah Setup baru: **OmoSync: tanpa batasan baterai**. Di HP Xiaomi/POCO, pilih \"No restrictions\" untuk OmoSync (dan Android Auto). Dengan penghemat baterai bawaan, HyperOS memperlambat OmoSync di kantong dan layar motor tersendat.\n",
+      "assets": [
+        {
+          "name": "OmoSync-0.5.4.apk",
+          "download_count": 0
+        }
+      ]
+    },
+    {
       "tag_name": "v0.5.3",
       "published_at": "2026-11-09T19:26:08Z",
       "body": "## OmoSync 0.5.3\n\n**Baru**\n- Kartu \"Tentang & pembaruan\" di bawah tab Cockpit: versi terpasang dan tombol \"Periksa pembaruan\". Hasilnya tampil langsung (sudah terbaru, versi baru tersedia, atau gagal memeriksa). Selama berkendara (koneksi layar, Android Auto, atau suara mesin aktif) pembaruan ditahan supaya perjalanan tidak terputus.\n- Versi terpasang juga tampil kecil di samping nama aplikasi.\n",
       "assets": [
         {
           "name": "OmoSync-0.5.3.apk",
-          "download_count": 3
+          "download_count": 5
         }
       ]
     },
@@ -25,7 +36,7 @@
     {
       "tag_name": "v0.5.1",
       "published_at": "2026-11-09T18:00:22Z",
-      "body": "## OmoSync 0.5.1\n\n**Splash screen baru**\n- Logo OmoSync kini beranimasi saat aplikasi dibuka (Android 12+): dua jalan berputar masuk, panah muncul, marka jalan tergambar. Android 10–11 menampilkan logo diam.\n\n**Selalu mulai dari Setup**\n- Setiap kali dibuka dari awal, OmoSync membuka halaman *Setup* lebih dulu supaya semua pemeriksaan terlihat. Saat sedang terhubung ke motor, casting, atau suara mesin berbunyi, aplikasi tetap membuka halaman terakhir.\n\n**Autostart Xiaomi diperbaiki**\n- Android Auto adalah aplikasi sistem di HP Xiaomi, jadi tidak ada di daftar Autostart dan sudah diizinkan. Langkah ini kini hanya meminta Autostart untuk OmoSync dan menjadi hijau sendiri bila pengaturannya terbaca.\n\n**Update lebih andal**\n- Unduhan update berjalan di latar belakang dengan progres di notifikasi, lengkap dengan tombol *Batal*. Bila selesai saat aplikasi tidak dibuka, notifikasi *siap dipasang* membuka installer.\n- Bila koneksi terputus, unduhan dilanjutkan otomatis dari posisi terakhir (hingga 3 kali). Bila tetap gagal, tombol *Lanjutkan* meneruskan dari situ, juga saat aplikasi dibuka lain kali.\n- Pesan gagal kini menyebut penyebabnya: HP tidak terhubung internet, error dari server, koneksi terputus, atau penyimpanan penuh.\n- Menutup aplikasi dari daftar aplikasi terbaru saat mengunduh membatalkan unduhan dan menghapus filenya.\n",
+      "body": "",
       "assets": [
         {
           "name": "OmoSync-0.5.1.apk",
