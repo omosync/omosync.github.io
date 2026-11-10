@@ -1,7 +1,7 @@
 {
-  "versionName": "0.5.3",
-  "versionCode": 19,
-  "apk": "https://github.com/omosync/omosync.github.io/releases/download/v0.5.3/OmoSync-0.5.3.apk",
-  "sha256": "131b5d5cc44fea26c7813ce1347d2113487dd8694e7bebf216131aac261dc0de",
-  "notes": "Baru\n• Kartu \"Tentang & pembaruan\" di bawah tab Cockpit: versi terpasang dan tombol \"Periksa pembaruan\". Hasilnya tampil langsung (sudah terbaru, versi baru tersedia, atau gagal memeriksa). Selama berkendara (koneksi layar, Android Auto, atau suara mesin aktif) pembaruan ditahan supaya perjalanan tidak terputus.\n• Versi terpasang juga tampil kecil di samping nama aplikasi."
+  "versionName": "0.5.4",
+  "versionCode": 20,
+  "apk": "https://github.com/omosync/omosync.github.io/releases/download/v0.5.4/OmoSync-0.5.4.apk",
+  "sha256": "a97d108a7f9b4fc13614bb266836a4310a4ea0619825fc52526cae5fa0438d35",
+  "notes": "Lebih hemat baterai\n• Sesudah berkendara, OmoSync berhenti sendiri sekitar 1 menit setelah Android Auto, koneksi ke motor, dan suara mesin semuanya mati. Sebelumnya OmoSync tetap bekerja di latar sampai tombol Stop ditekan.\n• Saat suara mesin dimatikan, pemutar suaranya benar-benar berhenti (sebelumnya terus memutar suara hening).\n• Gambar Android Auto kini cukup diolah sekali untuk layar motor dan pratinjau di HP. Kerja CPU untuk video turun hampir separuh.\n• Bitrate bawaan ke layar motor 3 Mbps (sebelumnya 6 Mbps); pilihan Anda sendiri di Lanjutan tetap dipakai.\n• Saat motor dimatikan sementara koneksi masih aktif, pencarian motor makin jarang (paling sering sekali per menit) supaya Wi-Fi tidak terus memindai.\n\nLebih lancar di kantong\n• Gambar ke layar motor tetap 30 fps saat HP terkunci di kantong atau OmoSync di latar belakang (sebelumnya bisa turun ke 15-20 fps).\n• Langkah Setup baru: OmoSync: tanpa batasan baterai. Di HP Xiaomi/POCO, pilih \"No restrictions\" untuk OmoSync (dan Android Auto). Dengan penghemat baterai bawaan, HyperOS memperlambat OmoSync di kantong dan layar motor tersendat."
 }
