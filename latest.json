@@ -1,7 +1,7 @@
 {
-  "versionName": "0.5.5",
-  "versionCode": 21,
-  "apk": "https://github.com/omosync/omosync.github.io/releases/download/v0.5.5/OmoSync-0.5.5.apk",
-  "sha256": "625c4befce732c1d2526cd2bc041a8a347e2ba155ae188f520c38162595fa523",
-  "notes": "Tetap lancar di kantong\n• Sebelum Start Android Auto atau Connect, OmoSync kini memeriksa pengaturan baterai. Bila penghemat baterai HyperOS masih membatasi OmoSync, muncul penjelasan singkat dan tombol yang langsung membuka pengaturan baterai OmoSync. Pilih \"No restrictions\" (Tanpa batasan).\n• Dengan penghemat baterai bawaan, HyperOS memperlambat OmoSync saat HP terkunci di kantong. Gambar di layar motor bisa turun ke 15 fps. Dengan \"No restrictions\", tetap 30 fps.\n• Anda tetap bisa melanjutkan tanpa mengubah pengaturan."
+  "versionName": "0.5.7",
+  "versionCode": 23,
+  "apk": "https://github.com/omosync/omosync.github.io/releases/download/v0.5.7/OmoSync-0.5.7.apk",
+  "sha256": "eab00e6029cc692608c0cbc1877627921ab2d3fde2637106022c8f0adc4ec8dc",
+  "notes": "Tetap 30 fps di kantong sejak pertama kali dipakai\n• Saat Start atau Connect, OmoSync kini mengingatkan bila HyperOS masih membatasi OmoSync dengan penghemat baterai. Ketuk Allow untuk membuka halaman baterai OmoSync, lalu pilih \"No restrictions\".\n• Android Auto / koneksi baru dimulai sesudah Anda kembali dari halaman itu. Bila dimulai lebih dulu, gambar ke layar motor bisa tetap sekitar 15 fps di kantong walaupun \"No restrictions\" sudah dipilih. Diuji di POCO X5: 30 fps dengan layar terkunci dan HP memakai baterai.\n• Pengingat muncul sekali per pemakaian dan tidak muncul bila OmoSync sudah dikecualikan.\n\nSetup lebih jujur\n• Langkah baterai yang hanya Anda tandai \"I've done this\" kini diberi keterangan bahwa Android tidak bisa memeriksanya, dan tombol halaman baterainya tetap ada untuk memastikan.\n• Langkah yang sudah terperiksa otomatis tidak lagi menampilkan tombol \"Not done yet\"."
 }
