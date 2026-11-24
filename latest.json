@@ -1,7 +1,7 @@
 {
-  "versionName": "0.5.8",
-  "versionCode": 24,
-  "apk": "https://github.com/omosync/omosync.github.io/releases/download/v0.5.8/OmoSync-0.5.8.apk",
-  "sha256": "2aca2329c730bb9416f122ad2bbecda493ce74672f37c5f66ae34d687db96899",
-  "notes": "Gambar Android Auto tampil lagi di layar motor\n• Sejak 0.4.8, OmoSync memberi tahu motor bahwa navigasi sudah selesai, supaya panel belok di kiri atas hilang. Di motor sungguhan, hal itu ikut menyembunyikan seluruh gambar: yang tersisa hanya jam, baterai, lagu, dan kecepatan.\n• Kini OmoSync mengirim status yang sama dengan aplikasi OMOWAY saat bernavigasi, sehingga gambar tampil lagi. Data panel belok tetap dikosongkan.\n• Setelan lama otomatis kembali ke nilai baru, tidak perlu diubah manual.\n• Bila panel belok masih muncul di kiri atas, coba Cockpit → Advanced → Bike navigation status = 1, lalu sambung ulang ke motor."
+  "versionName": "0.5.9",
+  "versionCode": 25,
+  "apk": "https://github.com/omosync/omosync.github.io/releases/download/v0.5.9/OmoSync-0.5.9.apk",
+  "sha256": "d55f4cfa0c5ee63d562fad977ba8754f844aba2127b8418d53f256382aed1b2f",
+  "notes": "Lebih stabil saat membuka aplikasi dan menjalankan Android Auto\n• Perbaikan beberapa kondisi yang bisa membuat OmoSync tertutup tiba-tiba saat Android Auto dimulai, dihentikan, atau saat aplikasi dibuka ketika Android Auto sedang berjalan. Ini terutama terjadi pada HP dengan chip yang berbeda dari HP uji (misalnya MediaTek).\n• Bila persiapan gambar ke motor gagal, OmoSync kini beralih ke jalur cadangan atau menampilkan pesan error, tidak lagi menutup aplikasi.\n\nLaporan crash\n• Bila OmoSync masih tertutup tiba-tiba, penyebabnya disimpan di HP. Saat aplikasi dibuka lagi, kartu Tentang & pembaruan menampilkan tombol Bagikan laporan crash untuk mengirimnya ke pengembang lewat chat atau email. Tidak ada yang dikirim otomatis."
 }
