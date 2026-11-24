@@ -1,6 +1,17 @@
 {
   "releases": [
     {
+      "tag_name": "v0.5.9",
+      "published_at": "2026-11-24T14:35:37Z",
+      "body": "## OmoSync 0.5.9\n\n**Lebih stabil saat membuka aplikasi dan menjalankan Android Auto**\n- Perbaikan beberapa kondisi yang bisa membuat OmoSync tertutup tiba-tiba saat Android Auto dimulai, dihentikan, atau saat aplikasi dibuka ketika Android Auto sedang berjalan. Ini terutama terjadi pada HP dengan chip yang berbeda dari HP uji (misalnya MediaTek).\n- Bila persiapan gambar ke motor gagal, OmoSync kini beralih ke jalur cadangan atau menampilkan pesan error, tidak lagi menutup aplikasi.\n\n**Laporan crash**\n- Bila OmoSync masih tertutup tiba-tiba, penyebabnya disimpan di HP. Saat aplikasi dibuka lagi, kartu **Tentang & pembaruan** menampilkan tombol **Bagikan laporan crash** untuk mengirimnya ke pengembang lewat chat atau email. Tidak ada yang dikirim otomatis.\n",
+      "assets": [
+        {
+          "name": "OmoSync-0.5.9.apk",
+          "download_count": 0
+        }
+      ]
+    },
+    {
       "tag_name": "v0.5.8",
       "published_at": "2026-11-24T10:21:18Z",
       "body": "## OmoSync 0.5.8\n\n**Gambar Android Auto tampil lagi di layar motor**\n- Sejak 0.4.8, OmoSync memberi tahu motor bahwa navigasi sudah selesai, supaya panel belok di kiri atas hilang. Di motor sungguhan, hal itu ikut menyembunyikan seluruh gambar: yang tersisa hanya jam, baterai, lagu, dan kecepatan.\n- Kini OmoSync mengirim status yang sama dengan aplikasi OMOWAY saat bernavigasi, sehingga gambar tampil lagi. Data panel belok tetap dikosongkan.\n- Setelan lama otomatis kembali ke nilai baru, tidak perlu diubah manual.\n- Bila panel belok masih muncul di kiri atas, coba Cockpit → Advanced → **Bike navigation status** = 1, lalu sambung ulang ke motor.\n",
@@ -25,7 +36,7 @@
     {
       "tag_name": "v0.5.5",
       "published_at": "2026-11-10T16:50:16Z",
-      "body": "## OmoSync 0.5.5\n\n**Tetap lancar di kantong**\n- Sebelum Start Android Auto atau Connect, OmoSync kini memeriksa pengaturan baterai. Bila penghemat baterai HyperOS masih membatasi OmoSync, muncul penjelasan singkat dan tombol yang langsung membuka pengaturan baterai OmoSync. Pilih \"No restrictions\" (Tanpa batasan).\n- Dengan penghemat baterai bawaan, HyperOS memperlambat OmoSync saat HP terkunci di kantong. Gambar di layar motor bisa turun ke 15 fps. Dengan \"No restrictions\", tetap 30 fps.\n- Anda tetap bisa melanjutkan tanpa mengubah pengaturan.\n",
+      "body": "",
       "assets": [
         {
           "name": "OmoSync-0.5.5.apk",
