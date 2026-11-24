@@ -1,7 +1,7 @@
 {
-  "versionName": "0.5.7",
-  "versionCode": 23,
-  "apk": "https://github.com/omosync/omosync.github.io/releases/download/v0.5.7/OmoSync-0.5.7.apk",
-  "sha256": "eab00e6029cc692608c0cbc1877627921ab2d3fde2637106022c8f0adc4ec8dc",
-  "notes": "Tetap 30 fps di kantong sejak pertama kali dipakai\n• Saat Start atau Connect, OmoSync kini mengingatkan bila HyperOS masih membatasi OmoSync dengan penghemat baterai. Ketuk Allow untuk membuka halaman baterai OmoSync, lalu pilih \"No restrictions\".\n• Android Auto / koneksi baru dimulai sesudah Anda kembali dari halaman itu. Bila dimulai lebih dulu, gambar ke layar motor bisa tetap sekitar 15 fps di kantong walaupun \"No restrictions\" sudah dipilih. Diuji di POCO X5: 30 fps dengan layar terkunci dan HP memakai baterai.\n• Pengingat muncul sekali per pemakaian dan tidak muncul bila OmoSync sudah dikecualikan.\n\nSetup lebih jujur\n• Langkah baterai yang hanya Anda tandai \"I've done this\" kini diberi keterangan bahwa Android tidak bisa memeriksanya, dan tombol halaman baterainya tetap ada untuk memastikan.\n• Langkah yang sudah terperiksa otomatis tidak lagi menampilkan tombol \"Not done yet\"."
+  "versionName": "0.5.8",
+  "versionCode": 24,
+  "apk": "https://github.com/omosync/omosync.github.io/releases/download/v0.5.8/OmoSync-0.5.8.apk",
+  "sha256": "2aca2329c730bb9416f122ad2bbecda493ce74672f37c5f66ae34d687db96899",
+  "notes": "Gambar Android Auto tampil lagi di layar motor\n• Sejak 0.4.8, OmoSync memberi tahu motor bahwa navigasi sudah selesai, supaya panel belok di kiri atas hilang. Di motor sungguhan, hal itu ikut menyembunyikan seluruh gambar: yang tersisa hanya jam, baterai, lagu, dan kecepatan.\n• Kini OmoSync mengirim status yang sama dengan aplikasi OMOWAY saat bernavigasi, sehingga gambar tampil lagi. Data panel belok tetap dikosongkan.\n• Setelan lama otomatis kembali ke nilai baru, tidak perlu diubah manual.\n• Bila panel belok masih muncul di kiri atas, coba Cockpit → Advanced → Bike navigation status = 1, lalu sambung ulang ke motor."
 }
