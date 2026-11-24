@@ -1,13 +1,24 @@
 {
   "releases": [
     {
+      "tag_name": "v0.5.8",
+      "published_at": "2026-11-24T10:21:18Z",
+      "body": "## OmoSync 0.5.8\n\n**Gambar Android Auto tampil lagi di layar motor**\n- Sejak 0.4.8, OmoSync memberi tahu motor bahwa navigasi sudah selesai, supaya panel belok di kiri atas hilang. Di motor sungguhan, hal itu ikut menyembunyikan seluruh gambar: yang tersisa hanya jam, baterai, lagu, dan kecepatan.\n- Kini OmoSync mengirim status yang sama dengan aplikasi OMOWAY saat bernavigasi, sehingga gambar tampil lagi. Data panel belok tetap dikosongkan.\n- Setelan lama otomatis kembali ke nilai baru, tidak perlu diubah manual.\n- Bila panel belok masih muncul di kiri atas, coba Cockpit → Advanced → **Bike navigation status** = 1, lalu sambung ulang ke motor.\n",
+      "assets": [
+        {
+          "name": "OmoSync-0.5.8.apk",
+          "download_count": 0
+        }
+      ]
+    },
+    {
       "tag_name": "v0.5.7",
       "published_at": "2026-11-10T17:52:29Z",
       "body": "## OmoSync 0.5.7\n\n**Tetap 30 fps di kantong sejak pertama kali dipakai**\n- Saat Start atau Connect, OmoSync kini mengingatkan bila HyperOS masih membatasi OmoSync dengan penghemat baterai. Ketuk **Allow** untuk membuka halaman baterai OmoSync, lalu pilih \"No restrictions\".\n- Android Auto / koneksi baru dimulai sesudah Anda kembali dari halaman itu. Bila dimulai lebih dulu, gambar ke layar motor bisa tetap sekitar 15 fps di kantong walaupun \"No restrictions\" sudah dipilih. Diuji di POCO X5: 30 fps dengan layar terkunci dan HP memakai baterai.\n- Pengingat muncul sekali per pemakaian dan tidak muncul bila OmoSync sudah dikecualikan.\n\n**Setup lebih jujur**\n- Langkah baterai yang hanya Anda tandai \"I've done this\" kini diberi keterangan bahwa Android tidak bisa memeriksanya, dan tombol halaman baterainya tetap ada untuk memastikan.\n- Langkah yang sudah terperiksa otomatis tidak lagi menampilkan tombol \"Not done yet\".\n",
       "assets": [
         {
           "name": "OmoSync-0.5.7.apk",
-          "download_count": 8
+          "download_count": 10
         }
       ]
     },
@@ -25,7 +36,7 @@
     {
       "tag_name": "v0.5.4",
       "published_at": "2026-11-10T09:23:10Z",
-      "body": "## OmoSync 0.5.4\n\n**Lebih hemat baterai**\n- Sesudah berkendara, OmoSync berhenti sendiri sekitar 1 menit setelah Android Auto, koneksi ke motor, dan suara mesin semuanya mati. Sebelumnya OmoSync tetap bekerja di latar sampai tombol Stop ditekan.\n- Saat suara mesin dimatikan, pemutar suaranya benar-benar berhenti (sebelumnya terus memutar suara hening).\n- Gambar Android Auto kini cukup diolah sekali untuk layar motor dan pratinjau di HP. Kerja CPU untuk video turun hampir separuh.\n- Bitrate bawaan ke layar motor 3 Mbps (sebelumnya 6 Mbps); pilihan Anda sendiri di Lanjutan tetap dipakai.\n- Saat motor dimatikan sementara koneksi masih aktif, pencarian motor makin jarang (paling sering sekali per menit) supaya Wi-Fi tidak terus memindai.\n\n**Lebih lancar di kantong**\n- Gambar ke layar motor tetap 30 fps saat HP terkunci di kantong atau OmoSync di latar belakang (sebelumnya bisa turun ke 15-20 fps).\n- Langkah Setup baru: **OmoSync: tanpa batasan baterai**. Di HP Xiaomi/POCO, pilih \"No restrictions\" untuk OmoSync (dan Android Auto). Dengan penghemat baterai bawaan, HyperOS memperlambat OmoSync di kantong dan layar motor tersendat.\n",
+      "body": "",
       "assets": [
         {
           "name": "OmoSync-0.5.4.apk",
